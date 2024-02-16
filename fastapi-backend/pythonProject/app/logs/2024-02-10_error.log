@@ -1,0 +1,1235 @@
+2024-02-10 14:32:23.522 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:32:24.119 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:32:51.350 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:33:00.057 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:33:21.536 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:34:46.513 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:34:50.905 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:34:51.772 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:34:52.261 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:34:52.412 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:34:52.583 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:34:52.724 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:34:52.965 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:36:09.709 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:36:30.092 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:38:30.023 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:41:13.476 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:53:56.738 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 14:56:32.028 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:04:22.075 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:04:22.559 | ERROR    | app.api.app_v1.endpoints.user:create_user:273 - "UserCreate" object has no field "password_hash"
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x0000017790E36EF0>
+    └ <Thread(asyncio_0, started 12476)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x0000017790E36C20>
+    └ <Thread(asyncio_0, started 12476)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 12476)>
+    │    │        │    └ (<weakref at 0x0000017794E06C00; to 'ThreadPoolExecutor' at 0x0000017794DDF940>, <_queue.SimpleQueue object at 0x0000017794E0...
+    │    │        └ <Thread(asyncio_0, started 12476)>
+    │    └ <function _worker at 0x0000017794DEDBD0>
+    └ <Thread(asyncio_0, started 12476)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x0000017794DEDCF0>
+    └ <concurrent.futures.thread._WorkItem object at 0x0000017794E24700>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x0000017794E24700>
+             │    │   │    └ (functools.partial(<function create_user at 0x0000017794BF3880>, db=<sqlalchemy.orm.session.Session object at 0x0000017794DDF...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x0000017794E24700>
+             │    └ <built-in method run of _contextvars.Context object at 0x0000017794E1CE40>
+             └ <concurrent.futures.thread._WorkItem object at 0x0000017794E24700>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 271, in create_user
+    user.password_hash = password
+    │                    └ '$2b$12$m7Koe3XpIgzAel7a8aOJv.v.Y.qNu7LfhC4YbgcuhHnkOUYuIAdSm'
+    └ UserCreate(username='brownlu24', password='12345678', role='学生', associated_id='string')
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pydantic\main.py", line 422, in __setattr__
+    raise ValueError(f'"{self.__class__.__name__}" object has no field "{name}"')
+
+ValueError: "UserCreate" object has no field "password_hash"
+2024-02-10 15:05:37.520 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:05:37.770 | ERROR    | app.api.app_v1.endpoints.user:create_user:273 - "UserCreate" object has no field "password_hash"
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x0000017790E36EF0>
+    └ <Thread(asyncio_0, started 12476)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x0000017790E36C20>
+    └ <Thread(asyncio_0, started 12476)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 12476)>
+    │    │        │    └ (<weakref at 0x0000017794E06C00; to 'ThreadPoolExecutor' at 0x0000017794DDF940>, <_queue.SimpleQueue object at 0x0000017794E0...
+    │    │        └ <Thread(asyncio_0, started 12476)>
+    │    └ <function _worker at 0x0000017794DEDBD0>
+    └ <Thread(asyncio_0, started 12476)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x0000017794DEDCF0>
+    └ <concurrent.futures.thread._WorkItem object at 0x0000017794E246A0>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x0000017794E246A0>
+             │    │   │    └ (functools.partial(<function create_user at 0x0000017794BF3880>, db=<sqlalchemy.orm.session.Session object at 0x0000017794E25...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x0000017794E246A0>
+             │    └ <built-in method run of _contextvars.Context object at 0x0000017794E1CCC0>
+             └ <concurrent.futures.thread._WorkItem object at 0x0000017794E246A0>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 271, in create_user
+    user.password_hash = password
+    │                    └ '$2b$12$X0t1gVkeaHM9BKDdT9/guuTLIJ.MjzI2fzYENecIWT4z/xzZhb1bi'
+    └ UserCreate(username='brownlu24', password='12345678', role='学生', associated_id='string')
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pydantic\main.py", line 422, in __setattr__
+    raise ValueError(f'"{self.__class__.__name__}" object has no field "{name}"')
+
+ValueError: "UserCreate" object has no field "password_hash"
+2024-02-10 15:11:02.310 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:11:02.616 | ERROR    | app.api.app_v1.endpoints.user:create_user:273 - "UserCreate" object has no field "password_hash"
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x000001E109706EF0>
+    └ <Thread(asyncio_0, started 4016)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x000001E109706C20>
+    └ <Thread(asyncio_0, started 4016)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 4016)>
+    │    │        │    └ (<weakref at 0x000001E10D6F2F20; to 'ThreadPoolExecutor' at 0x000001E10D6D39D0>, <_queue.SimpleQueue object at 0x000001E10D35...
+    │    │        └ <Thread(asyncio_0, started 4016)>
+    │    └ <function _worker at 0x000001E10D6DDB40>
+    └ <Thread(asyncio_0, started 4016)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x000001E10D6DDC60>
+    └ <concurrent.futures.thread._WorkItem object at 0x000001E10D71C220>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x000001E10D71C220>
+             │    │   │    └ (functools.partial(<function create_user at 0x000001E10D4E37F0>, db=<sqlalchemy.orm.session.Session object at 0x000001E10D6D3...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x000001E10D71C220>
+             │    └ <built-in method run of _contextvars.Context object at 0x000001E10D708E80>
+             └ <concurrent.futures.thread._WorkItem object at 0x000001E10D71C220>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 271, in create_user
+    user.password_hash = password
+    │                    └ '$2b$12$ecVy/9KVfBryaytFND71eeSA4Hl7D2mSSWBBlvCWtAu5StzvApkVm'
+    └ UserCreate(username='brownlu24', password='12345678', role='学生', associated_id='string')
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pydantic\main.py", line 422, in __setattr__
+    raise ValueError(f'"{self.__class__.__name__}" object has no field "{name}"')
+
+ValueError: "UserCreate" object has no field "password_hash"
+2024-02-10 15:12:19.543 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:12:19.792 | ERROR    | app.api.app_v1.endpoints.user:create_user:273 - "UserCreate" object has no field "password_hash"
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x000001E109706EF0>
+    └ <Thread(asyncio_0, started 4016)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x000001E109706C20>
+    └ <Thread(asyncio_0, started 4016)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 4016)>
+    │    │        │    └ (<weakref at 0x000001E10D6F2F20; to 'ThreadPoolExecutor' at 0x000001E10D6D39D0>, <_queue.SimpleQueue object at 0x000001E10D35...
+    │    │        └ <Thread(asyncio_0, started 4016)>
+    │    └ <function _worker at 0x000001E10D6DDB40>
+    └ <Thread(asyncio_0, started 4016)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x000001E10D6DDC60>
+    └ <concurrent.futures.thread._WorkItem object at 0x000001E10D71D300>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x000001E10D71D300>
+             │    │   │    └ (functools.partial(<function create_user at 0x000001E10D4E37F0>, db=<sqlalchemy.orm.session.Session object at 0x000001E10D71E...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x000001E10D71D300>
+             │    └ <built-in method run of _contextvars.Context object at 0x000001E10D708340>
+             └ <concurrent.futures.thread._WorkItem object at 0x000001E10D71D300>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 271, in create_user
+    user.password_hash = password
+    │                    └ '$2b$12$Nk3aAA8Du2fUGr01PQuV6.f0IiFGfucGTZ.Iyf91vX6sHHNh2vDL.'
+    └ UserCreate(username='brownlu24', password='12345678', role='学生', associated_id='string')
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pydantic\main.py", line 422, in __setattr__
+    raise ValueError(f'"{self.__class__.__name__}" object has no field "{name}"')
+
+ValueError: "UserCreate" object has no field "password_hash"
+2024-02-10 15:14:41.473 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:14:41.759 | ERROR    | app.api.app_v1.endpoints.user:create_user:280 - 'password' is an invalid keyword argument for User
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x000002C3B91E6EF0>
+    └ <Thread(asyncio_0, started 7884)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x000002C3B91E6C20>
+    └ <Thread(asyncio_0, started 7884)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 7884)>
+    │    │        │    └ (<weakref at 0x000002C3BD1B6890; to 'ThreadPoolExecutor' at 0x000002C3BD1939A0>, <_queue.SimpleQueue object at 0x000002C3BD1B...
+    │    │        └ <Thread(asyncio_0, started 7884)>
+    │    └ <function _worker at 0x000002C3BD19DBD0>
+    └ <Thread(asyncio_0, started 7884)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x000002C3BD19DCF0>
+    └ <concurrent.futures.thread._WorkItem object at 0x000002C3BD1DC1F0>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x000002C3BD1DC1F0>
+             │    │   │    └ (functools.partial(<function create_user at 0x000002C3BCFA3880>, db=<sqlalchemy.orm.session.Session object at 0x000002C3BD193...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x000002C3BD1DC1F0>
+             │    └ <built-in method run of _contextvars.Context object at 0x000002C3BD1C8D00>
+             └ <concurrent.futures.thread._WorkItem object at 0x000002C3BD1DC1F0>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 276, in create_user
+    user = db_create_user(db=db, user=user)
+           │                 │        └ UserCreate(username='brownlu24', password='$2b$12$926.Ui/HqLKEqsTjHCYaV.e0IHWSrUvgsSuijR7.qfJIeEOv/24yW', role='学生', associat...
+           │                 └ <sqlalchemy.orm.session.Session object at 0x000002C3BD193670>
+           └ <function db_create_user at 0x000002C3BCC89000>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\app\crud\user.py", line 33, in db_create_user
+    db_user = User(**user.dict())
+              │      │    └ <function BaseModel.dict at 0x000002C3BB613D90>
+              │      └ UserCreate(username='brownlu24', password='$2b$12$926.Ui/HqLKEqsTjHCYaV.e0IHWSrUvgsSuijR7.qfJIeEOv/24yW', role='学生', associat...
+              └ <class 'app.models.models.User'>
+
+  File "<string>", line 4, in __init__
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\state.py", line 444, in _initialize_instance
+    with util.safe_reraise():
+         │    └ <class 'sqlalchemy.util.langhelpers.safe_reraise'>
+         └ <module 'sqlalchemy.util' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchemy\\util...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    │      └ <function raise_ at 0x000002C3BBA40790>
+    └ <module 'sqlalchemy.util.compat' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchem...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\state.py", line 442, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+           │       │              │            └ {'username': 'brownlu24', 'password': '$2b$12$926.Ui/HqLKEqsTjHCYaV.e0IHWSrUvgsSuijR7.qfJIeEOv/24yW', 'role': '学生', 'associat...
+           │       │              └ (<sqlalchemy.orm.state.InstanceState object at 0x000002C3BD1DDE10>, <app.models.models.User object at 0x000002C3BD1DC580>)
+           │       └ <function _declarative_constructor at 0x000002C3BC019510>
+           └ <ClassManager of <class 'app.models.models.User'> at 2c3bcbcf790>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 1142, in _declarative_constructor
+    raise TypeError(
+
+TypeError: 'password' is an invalid keyword argument for User
+2024-02-10 15:21:03.504 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:21:03.787 | ERROR    | app.api.app_v1.endpoints.user:create_user:280 - 'password' is an invalid keyword argument for User
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x00000238144A6EF0>
+    └ <Thread(asyncio_0, started 12232)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x00000238144A6C20>
+    └ <Thread(asyncio_0, started 12232)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 12232)>
+    │    │        │    └ (<weakref at 0x0000023818496B10; to 'ThreadPoolExecutor' at 0x000002381846F970>, <_queue.SimpleQueue object at 0x000002381849...
+    │    │        └ <Thread(asyncio_0, started 12232)>
+    │    └ <function _worker at 0x000002381847DB40>
+    └ <Thread(asyncio_0, started 12232)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x000002381847DC60>
+    └ <concurrent.futures.thread._WorkItem object at 0x00000238184B4730>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x00000238184B4730>
+             │    │   │    └ (functools.partial(<function create_user at 0x00000238182837F0>, db=<sqlalchemy.orm.session.Session object at 0x000002381846F...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x00000238184B4730>
+             │    └ <built-in method run of _contextvars.Context object at 0x00000238184ACCC0>
+             └ <concurrent.futures.thread._WorkItem object at 0x00000238184B4730>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 276, in create_user
+    user = db_create_user(db=db, user=user)
+           │                 │        └ UserCreate(username='brownlu24', password='$2b$12$V4qzEfljKe1OASk1llnWDuSBuVzbBDPqainXt4JoTEAMiZUCAHtOa', role='学生', associat...
+           │                 └ <sqlalchemy.orm.session.Session object at 0x000002381846FC40>
+           └ <function db_create_user at 0x0000023817F6CF70>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\app\crud\user.py", line 34, in db_create_user
+    db_user = User(**user.dict())
+              │      │    └ <function BaseModel.dict at 0x00000238164F3D90>
+              │      └ UserCreate(username='brownlu24', password='$2b$12$V4qzEfljKe1OASk1llnWDuSBuVzbBDPqainXt4JoTEAMiZUCAHtOa', role='学生', associat...
+              └ <class 'app.models.models.User'>
+
+  File "<string>", line 4, in __init__
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\state.py", line 444, in _initialize_instance
+    with util.safe_reraise():
+         │    └ <class 'sqlalchemy.util.langhelpers.safe_reraise'>
+         └ <module 'sqlalchemy.util' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchemy\\util...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    │      └ <function raise_ at 0x0000023816D20700>
+    └ <module 'sqlalchemy.util.compat' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchem...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\state.py", line 442, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+           │       │              │            └ {'username': 'brownlu24', 'password': '$2b$12$V4qzEfljKe1OASk1llnWDuSBuVzbBDPqainXt4JoTEAMiZUCAHtOa', 'role': '学生', 'associat...
+           │       │              └ (<sqlalchemy.orm.state.InstanceState object at 0x00000238184F0B20>, <app.models.models.User object at 0x00000238184F28F0>)
+           │       └ <function _declarative_constructor at 0x00000238172F9480>
+           └ <ClassManager of <class 'app.models.models.User'> at 23817eafb50>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 1142, in _declarative_constructor
+    raise TypeError(
+
+TypeError: 'password' is an invalid keyword argument for User
+2024-02-10 15:23:08.330 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:23:08.613 | ERROR    | app.api.app_v1.endpoints.user:create_user:273 - "UserCreate" object has no field "password_hash"
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x000001B856186EF0>
+    └ <Thread(asyncio_0, started 16976)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x000001B856186C20>
+    └ <Thread(asyncio_0, started 16976)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 16976)>
+    │    │        │    └ (<weakref at 0x000001B85A172ED0; to 'ThreadPoolExecutor' at 0x000001B85A14F970>, <_queue.SimpleQueue object at 0x000001B85A17...
+    │    │        └ <Thread(asyncio_0, started 16976)>
+    │    └ <function _worker at 0x000001B85A15DB40>
+    └ <Thread(asyncio_0, started 16976)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x000001B85A15DC60>
+    └ <concurrent.futures.thread._WorkItem object at 0x000001B85A190730>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x000001B85A190730>
+             │    │   │    └ (functools.partial(<function create_user at 0x000001B859F637F0>, db=<sqlalchemy.orm.session.Session object at 0x000001B85A14F...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x000001B85A190730>
+             │    └ <built-in method run of _contextvars.Context object at 0x000001B85A188CC0>
+             └ <concurrent.futures.thread._WorkItem object at 0x000001B85A190730>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 271, in create_user
+    user.password_hash = password
+    │                    └ '$2b$12$eGBfz6q8q3vusWa8Lva6.O1z5bK.HGXTOmWFLU84NF3Q3tCjlUTDa'
+    └ UserCreate(username='brownlu24', password='12345678', role='学生', associated_id='string')
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pydantic\main.py", line 422, in __setattr__
+    raise ValueError(f'"{self.__class__.__name__}" object has no field "{name}"')
+
+ValueError: "UserCreate" object has no field "password_hash"
+2024-02-10 15:24:53.981 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:24:54.265 | ERROR    | app.api.app_v1.endpoints.user:create_user:273 - "UserCreate" object has no field "password_hash"
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x000001FB26D96EF0>
+    └ <Thread(asyncio_0, started 6244)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x000001FB26D96C20>
+    └ <Thread(asyncio_0, started 6244)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 6244)>
+    │    │        │    └ (<weakref at 0x000001FB2AD76CA0; to 'ThreadPoolExecutor' at 0x000001FB2AD4F970>, <_queue.SimpleQueue object at 0x000001FB2AD7...
+    │    │        └ <Thread(asyncio_0, started 6244)>
+    │    └ <function _worker at 0x000001FB2AD5DB40>
+    └ <Thread(asyncio_0, started 6244)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x000001FB2AD5DC60>
+    └ <concurrent.futures.thread._WorkItem object at 0x000001FB2AD90730>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x000001FB2AD90730>
+             │    │   │    └ (functools.partial(<function create_user at 0x000001FB2AB637F0>, db=<sqlalchemy.orm.session.Session object at 0x000001FB2AD4F...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x000001FB2AD90730>
+             │    └ <built-in method run of _contextvars.Context object at 0x000001FB2AD88A80>
+             └ <concurrent.futures.thread._WorkItem object at 0x000001FB2AD90730>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 271, in create_user
+    user.password_hash = password_hash
+    │                    └ '$2b$12$J0wPN8nnfMJDM40FOGToyeWzwHtnyggQ6KAQJ9yrItKXS93II0eUS'
+    └ UserCreate(username='brownlu24', password='12345678', role='学生', associated_id='string')
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pydantic\main.py", line 422, in __setattr__
+    raise ValueError(f'"{self.__class__.__name__}" object has no field "{name}"')
+
+ValueError: "UserCreate" object has no field "password_hash"
+2024-02-10 15:24:55.861 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:24:56.116 | ERROR    | app.api.app_v1.endpoints.user:create_user:273 - "UserCreate" object has no field "password_hash"
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x000001FB26D96EF0>
+    └ <Thread(asyncio_0, started 6244)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x000001FB26D96C20>
+    └ <Thread(asyncio_0, started 6244)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 6244)>
+    │    │        │    └ (<weakref at 0x000001FB2AD76CA0; to 'ThreadPoolExecutor' at 0x000001FB2AD4F970>, <_queue.SimpleQueue object at 0x000001FB2AD7...
+    │    │        └ <Thread(asyncio_0, started 6244)>
+    │    └ <function _worker at 0x000001FB2AD5DB40>
+    └ <Thread(asyncio_0, started 6244)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x000001FB2AD5DC60>
+    └ <concurrent.futures.thread._WorkItem object at 0x000001FB2AD4FFD0>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x000001FB2AD4FFD0>
+             │    │   │    └ (functools.partial(<function create_user at 0x000001FB2AB637F0>, db=<sqlalchemy.orm.session.Session object at 0x000001FB2AD4F...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x000001FB2AD4FFD0>
+             │    └ <built-in method run of _contextvars.Context object at 0x000001FB2AD88900>
+             └ <concurrent.futures.thread._WorkItem object at 0x000001FB2AD4FFD0>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 271, in create_user
+    user.password_hash = password_hash
+    │                    └ '$2b$12$wb9HX43cOABxR3OUb1jj7O80ea3gJlwe0mCuGZNKXWI3n0H.WUfOe'
+    └ UserCreate(username='brownlu24', password='12345678', role='学生', associated_id='string')
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pydantic\main.py", line 422, in __setattr__
+    raise ValueError(f'"{self.__class__.__name__}" object has no field "{name}"')
+
+ValueError: "UserCreate" object has no field "password_hash"
+2024-02-10 15:34:06.892 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:34:07.185 | ERROR    | app.api.app_v1.endpoints.user:create_user:280 - 'password' is an invalid keyword argument for User
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x000001C6013C6EF0>
+    └ <Thread(asyncio_0, started 420)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x000001C6013C6C20>
+    └ <Thread(asyncio_0, started 420)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 420)>
+    │    │        │    └ (<weakref at 0x000001C605366B10; to 'ThreadPoolExecutor' at 0x000001C60533F970>, <_queue.SimpleQueue object at 0x000001C60536...
+    │    │        └ <Thread(asyncio_0, started 420)>
+    │    └ <function _worker at 0x000001C60534DBD0>
+    └ <Thread(asyncio_0, started 420)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x000001C60534DCF0>
+    └ <concurrent.futures.thread._WorkItem object at 0x000001C605380730>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x000001C605380730>
+             │    │   │    └ (functools.partial(<function create_user at 0x000001C605153880>, db=<sqlalchemy.orm.session.Session object at 0x000001C60533F...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x000001C605380730>
+             │    └ <built-in method run of _contextvars.Context object at 0x000001C605378BC0>
+             └ <concurrent.futures.thread._WorkItem object at 0x000001C605380730>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 276, in create_user
+    user = db_create_user(db=db, user=user)
+           │                 │        └ UserCreate(username='brownlu24', password='$2b$12$HvuY7wY3lXeQ0njWTOHaxOf1N/4XSlU94PIO3IQ82Im1qSDIdId7G', role='学生', associat...
+           │                 └ <sqlalchemy.orm.session.Session object at 0x000001C60533FC40>
+           └ <function db_create_user at 0x000001C604E39000>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\app\crud\user.py", line 34, in db_create_user
+    db_user = User(**user.dict())
+              │      │    └ <function BaseModel.dict at 0x000001C6037C3D90>
+              │      └ UserCreate(username='brownlu24', password='$2b$12$HvuY7wY3lXeQ0njWTOHaxOf1N/4XSlU94PIO3IQ82Im1qSDIdId7G', role='学生', associat...
+              └ <class 'app.models.models.User'>
+
+  File "<string>", line 4, in __init__
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\state.py", line 444, in _initialize_instance
+    with util.safe_reraise():
+         │    └ <class 'sqlalchemy.util.langhelpers.safe_reraise'>
+         └ <module 'sqlalchemy.util' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchemy\\util...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    │      └ <function raise_ at 0x000001C603BF0790>
+    └ <module 'sqlalchemy.util.compat' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchem...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\state.py", line 442, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+           │       │              │            └ {'username': 'brownlu24', 'password': '$2b$12$HvuY7wY3lXeQ0njWTOHaxOf1N/4XSlU94PIO3IQ82Im1qSDIdId7G', 'role': '学生', 'associat...
+           │       │              └ (<sqlalchemy.orm.state.InstanceState object at 0x000001C6053C0B20>, <app.models.models.User object at 0x000001C6053C28F0>)
+           │       └ <function _declarative_constructor at 0x000001C6041C9510>
+           └ <ClassManager of <class 'app.models.models.User'> at 1c604d7f7e0>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 1142, in _declarative_constructor
+    raise TypeError(
+
+TypeError: 'password' is an invalid keyword argument for User
+2024-02-10 15:57:11.797 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:58:45.860 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 15:59:13.984 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 16:01:01.535 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 16:01:01.939 | ERROR    | app.api.app_v1.endpoints.user:create_user:280 - 'NoneType' object has no attribute 'id'
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x0000029B1BCF6EF0>
+    └ <Thread(asyncio_0, started 11488)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x0000029B1BCF6C20>
+    └ <Thread(asyncio_0, started 11488)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 11488)>
+    │    │        │    └ (<weakref at 0x0000029B1FCE3330; to 'ThreadPoolExecutor' at 0x0000029B1FCC7BE0>, <_queue.SimpleQueue object at 0x0000029B1FCE...
+    │    │        └ <Thread(asyncio_0, started 11488)>
+    │    └ <function _worker at 0x0000029B1FCCDFC0>
+    └ <Thread(asyncio_0, started 11488)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x0000029B1FCCE0E0>
+    └ <concurrent.futures.thread._WorkItem object at 0x0000029B1FD049A0>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x0000029B1FD049A0>
+             │    │   │    └ (functools.partial(<function create_user at 0x0000029B1FACFD00>, db=<sqlalchemy.orm.session.Session object at 0x0000029B1FCC7...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x0000029B1FD049A0>
+             │    └ <built-in method run of _contextvars.Context object at 0x0000029B1FCEA480>
+             └ <concurrent.futures.thread._WorkItem object at 0x0000029B1FD049A0>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 276, in create_user
+    user = db_create_user(db=db, user=user)
+           │                 │        └ UserCreate(username='brownlu123', password_hash='$2b$12$WB0.glKIC.eUaFLJlhiaQuKHpisDnjoIylrK8zt5BgfvKHQ2gbNp.', role='1', ass...
+           │                 └ <sqlalchemy.orm.session.Session object at 0x0000029B1FCC7EB0>
+           └ <function db_create_user at 0x0000029B1F7C5510>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\app\crud\user.py", line 35, in db_create_user
+    db_user.role = roles.id
+    │       │      └ None
+    │       └ <sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x0000029B1F72C900>
+    └ <app.models.models.User object at 0x0000029B1FD46710>
+
+AttributeError: 'NoneType' object has no attribute 'id'
+2024-02-10 16:04:33.171 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 16:04:33.457 | ERROR    | app.api.app_v1.endpoints.user:create_user:280 - 'NoneType' object has no attribute 'id'
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x0000013B84CC6EF0>
+    └ <Thread(asyncio_0, started 16136)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x0000013B84CC6C20>
+    └ <Thread(asyncio_0, started 16136)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 16136)>
+    │    │        │    └ (<weakref at 0x0000013B88C83470; to 'ThreadPoolExecutor' at 0x0000013B88C67BE0>, <_queue.SimpleQueue object at 0x0000013B88C8...
+    │    │        └ <Thread(asyncio_0, started 16136)>
+    │    └ <function _worker at 0x0000013B88C6DFC0>
+    └ <Thread(asyncio_0, started 16136)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x0000013B88C6E0E0>
+    └ <concurrent.futures.thread._WorkItem object at 0x0000013B88CA49A0>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x0000013B88CA49A0>
+             │    │   │    └ (functools.partial(<function create_user at 0x0000013B88A6FD00>, db=<sqlalchemy.orm.session.Session object at 0x0000013B88C67...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x0000013B88CA49A0>
+             │    └ <built-in method run of _contextvars.Context object at 0x0000013B88C8E340>
+             └ <concurrent.futures.thread._WorkItem object at 0x0000013B88CA49A0>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 276, in create_user
+    user = db_create_user(db=db, user=user)
+           │                 │        └ UserCreate(username='brownlu123', password_hash='$2b$12$/mpZeZYZBwOWGbXiVME1rOX0aEjTZQkdlS6qjah1cgsLkYgtp3ocK', role='1', ass...
+           │                 └ <sqlalchemy.orm.session.Session object at 0x0000013B88C67EB0>
+           └ <function db_create_user at 0x0000013B88765510>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\app\crud\user.py", line 35, in db_create_user
+    db_user.role = roles.id
+    │       │      └ None
+    │       └ <sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x0000013B886C8C20>
+    └ <app.models.models.User object at 0x0000013B88CE4E50>
+
+AttributeError: 'NoneType' object has no attribute 'id'
+2024-02-10 16:06:08.619 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 16:06:09.002 | ERROR    | app.api.app_v1.endpoints.user:create_user:280 - (pymysql.err.OperationalError) (1364, "Field 'user_id' doesn't have a default value")
+[SQL: INSERT INTO users (username, password_hash, `role`, associated_id) VALUES (%(username)s, %(password_hash)s, %(role)s, %(associated_id)s)]
+[parameters: {'username': 'brownlu123', 'password_hash': '$2b$12$1MlEJpTddxcxqIXQEChJ/uyEzuxa8ajDp7PrM3SoEgtCFtp8UOVs6', 'role': '1', 'associated_id': None}]
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+Traceback (most recent call last):
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1763, in _execute_context
+    self.dialect.do_execute(
+    │    │       └ <function DefaultDialect.do_execute at 0x000001E3C9DE9AB0>
+    │    └ <sqlalchemy.dialects.mysql.pymysql.MySQLDialect_pymysql object at 0x000001E3CA9BAD70>
+    └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB119120>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+    │      │       │          └ {'username': 'brownlu123', 'password_hash': '$2b$12$1MlEJpTddxcxqIXQEChJ/uyEzuxa8ajDp7PrM3SoEgtCFtp8UOVs6', 'role': '1', 'ass...
+    │      │       └ 'INSERT INTO users (username, password_hash, `role`, associated_id) VALUES (%(username)s, %(password_hash)s, %(role)s, %(asso...
+    │      └ <function Cursor.execute at 0x000001E3CAA7F5B0>
+    └ <pymysql.cursors.Cursor object at 0x000001E3CB157730>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+             │    │      └ "INSERT INTO users (username, password_hash, `role`, associated_id) VALUES ('brownlu123', '$2b$12$1MlEJpTddxcxqIXQEChJ/uyEzux...
+             │    └ <function Cursor._query at 0x000001E3CAA7FA30>
+             └ <pymysql.cursors.Cursor object at 0x000001E3CB157730>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+    │    │     └ "INSERT INTO users (username, password_hash, `role`, associated_id) VALUES ('brownlu123', '$2b$12$1MlEJpTddxcxqIXQEChJ/uyEzux...
+    │    └ <function Connection.query at 0x000001E3CAABAD40>
+    └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+    │    │                │    │                             └ False
+    │    │                │    └ <function Connection._read_query_result at 0x000001E3CAABB370>
+    │    │                └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+    │    └ 0
+    └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+    │      └ <function MySQLResult.read at 0x000001E3CAABBB50>
+    └ <pymysql.connections.MySQLResult object at 0x000001E3CB154E20>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+                   │    └ None
+                   └ <pymysql.connections.MySQLResult object at 0x000001E3CB154E20>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+    │      └ <function MysqlPacket.raise_for_error at 0x000001E3CAAB95A0>
+    └ <pymysql.protocol.MysqlPacket object at 0x000001E3CB154850>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    │   │                     │    └ <member '_data' of 'MysqlPacket' objects>
+    │   │                     └ <pymysql.protocol.MysqlPacket object at 0x000001E3CB154850>
+    │   └ <function raise_mysql_exception at 0x000001E3CAA7C790>
+    └ <module 'pymysql.err' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\pymysql\\err.py'>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+          │          │      └ "Field 'user_id' doesn't have a default value"
+          │          └ 1364
+          └ <class 'pymysql.err.OperationalError'>
+
+pymysql.err.OperationalError: (1364, "Field 'user_id' doesn't have a default value")
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x000001E3C70F6EF0>
+    └ <Thread(asyncio_0, started 348)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x000001E3C70F6C20>
+    └ <Thread(asyncio_0, started 348)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 348)>
+    │    │        │    └ (<weakref at 0x000001E3CB0F3330; to 'ThreadPoolExecutor' at 0x000001E3CB0D7BE0>, <_queue.SimpleQueue object at 0x000001E3CB0F...
+    │    │        └ <Thread(asyncio_0, started 348)>
+    │    └ <function _worker at 0x000001E3CB0DDEA0>
+    └ <Thread(asyncio_0, started 348)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x000001E3CB0DDFC0>
+    └ <concurrent.futures.thread._WorkItem object at 0x000001E3CB1189A0>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x000001E3CB1189A0>
+             │    │   │    └ (functools.partial(<function create_user at 0x000001E3CAEC7BE0>, db=<sqlalchemy.orm.session.Session object at 0x000001E3CB0D7...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x000001E3CB1189A0>
+             │    └ <built-in method run of _contextvars.Context object at 0x000001E3CB0FA480>
+             └ <concurrent.futures.thread._WorkItem object at 0x000001E3CB1189A0>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 276, in create_user
+    user = db_create_user(db=db, user=user)
+           │                 │        └ UserCreate(username='brownlu123', password_hash='$2b$12$1MlEJpTddxcxqIXQEChJ/uyEzuxa8ajDp7PrM3SoEgtCFtp8UOVs6', role='1', ass...
+           │                 └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7EB0>
+           └ <function db_create_user at 0x000001E3CABD53F0>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\app\crud\user.py", line 35, in db_create_user
+    db.commit()  # 提交保存到数据库中
+    │  └ <function Session.commit at 0x000001E3CA945EA0>
+    └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7EB0>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+    │    │            │               │    └ False
+    │    │            │               └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7EB0>
+    │    │            └ <function SessionTransaction.commit at 0x000001E3CA944F70>
+    │    └ <sqlalchemy.orm.session.SessionTransaction object at 0x000001E3CB118BB0>
+    └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7EB0>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 826, in commit
+    self._prepare_impl()
+    │    └ <function SessionTransaction._prepare_impl at 0x000001E3CA944EE0>
+    └ <sqlalchemy.orm.session.SessionTransaction object at 0x000001E3CB118BB0>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 805, in _prepare_impl
+    self.session.flush()
+    │    │       └ <function Session.flush at 0x000001E3CA947A30>
+    │    └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7EB0>
+    └ <sqlalchemy.orm.session.SessionTransaction object at 0x000001E3CB118BB0>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3260, in flush
+    self._flush(objects)
+    │    │      └ None
+    │    └ <function Session._flush at 0x000001E3CA947BE0>
+    └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7EB0>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3399, in _flush
+    with util.safe_reraise():
+         │    └ <class 'sqlalchemy.util.langhelpers.safe_reraise'>
+         └ <module 'sqlalchemy.util' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchemy\\util...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    │      └ <function raise_ at 0x000001E3C9980670>
+    └ <module 'sqlalchemy.util.compat' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchem...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3360, in _flush
+    flush_context.execute()
+    │             └ <function UOWTransaction.execute at 0x000001E3CA93A680>
+    └ <sqlalchemy.orm.unitofwork.UOWTransaction object at 0x000001E3CB1574C0>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 453, in execute
+    rec.execute(self)
+    │   │       └ <sqlalchemy.orm.unitofwork.UOWTransaction object at 0x000001E3CB1574C0>
+    │   └ <function SaveUpdateAll.execute at 0x000001E3CA93AF80>
+    └ SaveUpdateAll(mapped class User->users)
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 627, in execute
+    util.preloaded.orm_persistence.save_obj(
+    │    │         │               └ <function save_obj at 0x000001E3CA938430>
+    │    │         └ <module 'sqlalchemy.orm.persistence' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlal...
+    │    └ <sqlalchemy.util._preloaded._ModuleRegistry object at 0x000001E3C98937F0>
+    └ <module 'sqlalchemy.util' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchemy\\util...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 242, in save_obj
+    _emit_insert_statements(
+    └ <function _emit_insert_statements at 0x000001E3CA938A60>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1219, in _emit_insert_statements
+    result = connection._execute_20(
+             │          └ <function Connection._execute_20 at 0x000001E3C9D2CF70>
+             └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB119120>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1578, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+           │    │     │             │               └ {'compiled_cache': {(<sqlalchemy.dialects.mysql.pymysql.MySQLDialect_pymysql object at 0x000001E3CA9BAD70>, ('0', <class 'sql...
+           │    │     │             └ immutabledict({})
+           │    │     └ ({'username': 'brownlu123', 'password_hash': '$2b$12$1MlEJpTddxcxqIXQEChJ/uyEzuxa8ajDp7PrM3SoEgtCFtp8UOVs6', 'role': '1', 'as...
+           │    └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB119120>
+           └ <bound method ClauseElement._execute_on_connection of <sqlalchemy.sql.dml.Insert object at 0x000001E3CB1558A0>>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 320, in _execute_on_connection
+    return connection._execute_clauseelement(
+           │          └ <function Connection._execute_clauseelement at 0x000001E3C9D2CDC0>
+           └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB119120>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1447, in _execute_clauseelement
+    ret = self._execute_context(
+          │    └ <function Connection._execute_context at 0x000001E3C9D2D090>
+          └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB119120>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1806, in _execute_context
+    self._handle_dbapi_exception(
+    │    └ <function Connection._handle_dbapi_exception at 0x000001E3C9D2D240>
+    └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB119120>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1987, in _handle_dbapi_exception
+    util.raise_(
+    │    └ <function raise_ at 0x000001E3C9980670>
+    └ <module 'sqlalchemy.util' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchemy\\util...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1763, in _execute_context
+    self.dialect.do_execute(
+    │    │       └ <function DefaultDialect.do_execute at 0x000001E3C9DE9AB0>
+    │    └ <sqlalchemy.dialects.mysql.pymysql.MySQLDialect_pymysql object at 0x000001E3CA9BAD70>
+    └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB119120>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+    │      │       │          └ {'username': 'brownlu123', 'password_hash': '$2b$12$1MlEJpTddxcxqIXQEChJ/uyEzuxa8ajDp7PrM3SoEgtCFtp8UOVs6', 'role': '1', 'ass...
+    │      │       └ 'INSERT INTO users (username, password_hash, `role`, associated_id) VALUES (%(username)s, %(password_hash)s, %(role)s, %(asso...
+    │      └ <function Cursor.execute at 0x000001E3CAA7F5B0>
+    └ <pymysql.cursors.Cursor object at 0x000001E3CB157730>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+             │    │      └ "INSERT INTO users (username, password_hash, `role`, associated_id) VALUES ('brownlu123', '$2b$12$1MlEJpTddxcxqIXQEChJ/uyEzux...
+             │    └ <function Cursor._query at 0x000001E3CAA7FA30>
+             └ <pymysql.cursors.Cursor object at 0x000001E3CB157730>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+    │    │     └ "INSERT INTO users (username, password_hash, `role`, associated_id) VALUES ('brownlu123', '$2b$12$1MlEJpTddxcxqIXQEChJ/uyEzux...
+    │    └ <function Connection.query at 0x000001E3CAABAD40>
+    └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+    │    │                │    │                             └ False
+    │    │                │    └ <function Connection._read_query_result at 0x000001E3CAABB370>
+    │    │                └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+    │    └ 0
+    └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+    │      └ <function MySQLResult.read at 0x000001E3CAABBB50>
+    └ <pymysql.connections.MySQLResult object at 0x000001E3CB154E20>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+                   │    └ None
+                   └ <pymysql.connections.MySQLResult object at 0x000001E3CB154E20>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+    │      └ <function MysqlPacket.raise_for_error at 0x000001E3CAAB95A0>
+    └ <pymysql.protocol.MysqlPacket object at 0x000001E3CB154850>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    │   │                     │    └ <member '_data' of 'MysqlPacket' objects>
+    │   │                     └ <pymysql.protocol.MysqlPacket object at 0x000001E3CB154850>
+    │   └ <function raise_mysql_exception at 0x000001E3CAA7C790>
+    └ <module 'pymysql.err' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\pymysql\\err.py'>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+          │          │      └ "Field 'user_id' doesn't have a default value"
+          │          └ 1364
+          └ <class 'pymysql.err.OperationalError'>
+
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1364, "Field 'user_id' doesn't have a default value")
+[SQL: INSERT INTO users (username, password_hash, `role`, associated_id) VALUES (%(username)s, %(password_hash)s, %(role)s, %(associated_id)s)]
+[parameters: {'username': 'brownlu123', 'password_hash': '$2b$12$1MlEJpTddxcxqIXQEChJ/uyEzuxa8ajDp7PrM3SoEgtCFtp8UOVs6', 'role': '1', 'associated_id': None}]
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+2024-02-10 16:06:10.671 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 16:06:10.932 | ERROR    | app.api.app_v1.endpoints.user:create_user:280 - (pymysql.err.OperationalError) (1364, "Field 'user_id' doesn't have a default value")
+[SQL: INSERT INTO users (username, password_hash, `role`, associated_id) VALUES (%(username)s, %(password_hash)s, %(role)s, %(associated_id)s)]
+[parameters: {'username': 'brownlu123', 'password_hash': '$2b$12$wH.r48mYgTriQh60NOv5jeR9MiAMB9UOK6.hS2TuQhSX3NST0UveW', 'role': '1', 'associated_id': None}]
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+Traceback (most recent call last):
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1763, in _execute_context
+    self.dialect.do_execute(
+    │    │       └ <function DefaultDialect.do_execute at 0x000001E3C9DE9AB0>
+    │    └ <sqlalchemy.dialects.mysql.pymysql.MySQLDialect_pymysql object at 0x000001E3CA9BAD70>
+    └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB118130>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+    │      │       │          └ {'username': 'brownlu123', 'password_hash': '$2b$12$wH.r48mYgTriQh60NOv5jeR9MiAMB9UOK6.hS2TuQhSX3NST0UveW', 'role': '1', 'ass...
+    │      │       └ 'INSERT INTO users (username, password_hash, `role`, associated_id) VALUES (%(username)s, %(password_hash)s, %(role)s, %(asso...
+    │      └ <function Cursor.execute at 0x000001E3CAA7F5B0>
+    └ <pymysql.cursors.Cursor object at 0x000001E3CB11B970>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+             │    │      └ "INSERT INTO users (username, password_hash, `role`, associated_id) VALUES ('brownlu123', '$2b$12$wH.r48mYgTriQh60NOv5jeR9MiA...
+             │    └ <function Cursor._query at 0x000001E3CAA7FA30>
+             └ <pymysql.cursors.Cursor object at 0x000001E3CB11B970>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+    │    │     └ "INSERT INTO users (username, password_hash, `role`, associated_id) VALUES ('brownlu123', '$2b$12$wH.r48mYgTriQh60NOv5jeR9MiA...
+    │    └ <function Connection.query at 0x000001E3CAABAD40>
+    └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+    │    │                │    │                             └ False
+    │    │                │    └ <function Connection._read_query_result at 0x000001E3CAABB370>
+    │    │                └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+    │    └ 0
+    └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+    │      └ <function MySQLResult.read at 0x000001E3CAABBB50>
+    └ <pymysql.connections.MySQLResult object at 0x000001E3CB11AB60>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+                   │    └ None
+                   └ <pymysql.connections.MySQLResult object at 0x000001E3CB11AB60>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+    │      └ <function MysqlPacket.raise_for_error at 0x000001E3CAAB95A0>
+    └ <pymysql.protocol.MysqlPacket object at 0x000001E3CB11ABC0>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    │   │                     │    └ <member '_data' of 'MysqlPacket' objects>
+    │   │                     └ <pymysql.protocol.MysqlPacket object at 0x000001E3CB11ABC0>
+    │   └ <function raise_mysql_exception at 0x000001E3CAA7C790>
+    └ <module 'pymysql.err' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\pymysql\\err.py'>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+          │          │      └ "Field 'user_id' doesn't have a default value"
+          │          └ 1364
+          └ <class 'pymysql.err.OperationalError'>
+
+pymysql.err.OperationalError: (1364, "Field 'user_id' doesn't have a default value")
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "E:\python\lib\threading.py", line 973, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x000001E3C70F6EF0>
+    └ <Thread(asyncio_0, started 348)>
+
+  File "E:\python\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+    │    └ <function Thread.run at 0x000001E3C70F6C20>
+    └ <Thread(asyncio_0, started 348)>
+
+  File "E:\python\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+    │    │        │    │        │    └ {}
+    │    │        │    │        └ <Thread(asyncio_0, started 348)>
+    │    │        │    └ (<weakref at 0x000001E3CB0F3330; to 'ThreadPoolExecutor' at 0x000001E3CB0D7BE0>, <_queue.SimpleQueue object at 0x000001E3CB0F...
+    │    │        └ <Thread(asyncio_0, started 348)>
+    │    └ <function _worker at 0x000001E3CB0DDEA0>
+    └ <Thread(asyncio_0, started 348)>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 83, in _worker
+    work_item.run()
+    │         └ <function _WorkItem.run at 0x000001E3CB0DDFC0>
+    └ <concurrent.futures.thread._WorkItem object at 0x000001E3CB11B9A0>
+
+  File "E:\python\lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             │    │   │    │       │    └ {}
+             │    │   │    │       └ <concurrent.futures.thread._WorkItem object at 0x000001E3CB11B9A0>
+             │    │   │    └ (functools.partial(<function create_user at 0x000001E3CAEC7BE0>, db=<sqlalchemy.orm.session.Session object at 0x000001E3CB0D7...
+             │    │   └ <concurrent.futures.thread._WorkItem object at 0x000001E3CB11B9A0>
+             │    └ <built-in method run of _contextvars.Context object at 0x000001E3CAF0ED00>
+             └ <concurrent.futures.thread._WorkItem object at 0x000001E3CB11B9A0>
+
+> File "E:\网站\web\web\fastapi-backend\pythonProject\app\api\app_v1\endpoints\user.py", line 276, in create_user
+    user = db_create_user(db=db, user=user)
+           │                 │        └ UserCreate(username='brownlu123', password_hash='$2b$12$wH.r48mYgTriQh60NOv5jeR9MiAMB9UOK6.hS2TuQhSX3NST0UveW', role='1', ass...
+           │                 └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7520>
+           └ <function db_create_user at 0x000001E3CABD53F0>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\app\crud\user.py", line 35, in db_create_user
+    db.commit()  # 提交保存到数据库中
+    │  └ <function Session.commit at 0x000001E3CA945EA0>
+    └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7520>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1428, in commit
+    self._transaction.commit(_to_root=self.future)
+    │    │            │               │    └ False
+    │    │            │               └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7520>
+    │    │            └ <function SessionTransaction.commit at 0x000001E3CA944F70>
+    │    └ <sqlalchemy.orm.session.SessionTransaction object at 0x000001E3CB11B640>
+    └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7520>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 826, in commit
+    self._prepare_impl()
+    │    └ <function SessionTransaction._prepare_impl at 0x000001E3CA944EE0>
+    └ <sqlalchemy.orm.session.SessionTransaction object at 0x000001E3CB11B640>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 805, in _prepare_impl
+    self.session.flush()
+    │    │       └ <function Session.flush at 0x000001E3CA947A30>
+    │    └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7520>
+    └ <sqlalchemy.orm.session.SessionTransaction object at 0x000001E3CB11B640>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3260, in flush
+    self._flush(objects)
+    │    │      └ None
+    │    └ <function Session._flush at 0x000001E3CA947BE0>
+    └ <sqlalchemy.orm.session.Session object at 0x000001E3CB0D7520>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3399, in _flush
+    with util.safe_reraise():
+         │    └ <class 'sqlalchemy.util.langhelpers.safe_reraise'>
+         └ <module 'sqlalchemy.util' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchemy\\util...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 70, in __exit__
+    compat.raise_(
+    │      └ <function raise_ at 0x000001E3C9980670>
+    └ <module 'sqlalchemy.util.compat' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchem...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3360, in _flush
+    flush_context.execute()
+    │             └ <function UOWTransaction.execute at 0x000001E3CA93A680>
+    └ <sqlalchemy.orm.unitofwork.UOWTransaction object at 0x000001E3CB119300>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 453, in execute
+    rec.execute(self)
+    │   │       └ <sqlalchemy.orm.unitofwork.UOWTransaction object at 0x000001E3CB119300>
+    │   └ <function SaveUpdateAll.execute at 0x000001E3CA93AF80>
+    └ SaveUpdateAll(mapped class User->users)
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 627, in execute
+    util.preloaded.orm_persistence.save_obj(
+    │    │         │               └ <function save_obj at 0x000001E3CA938430>
+    │    │         └ <module 'sqlalchemy.orm.persistence' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlal...
+    │    └ <sqlalchemy.util._preloaded._ModuleRegistry object at 0x000001E3C98937F0>
+    └ <module 'sqlalchemy.util' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchemy\\util...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 242, in save_obj
+    _emit_insert_statements(
+    └ <function _emit_insert_statements at 0x000001E3CA938A60>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 1219, in _emit_insert_statements
+    result = connection._execute_20(
+             │          └ <function Connection._execute_20 at 0x000001E3C9D2CF70>
+             └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB118130>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1578, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+           │    │     │             │               └ {'compiled_cache': {(<sqlalchemy.dialects.mysql.pymysql.MySQLDialect_pymysql object at 0x000001E3CA9BAD70>, ('0', <class 'sql...
+           │    │     │             └ immutabledict({})
+           │    │     └ ({'username': 'brownlu123', 'password_hash': '$2b$12$wH.r48mYgTriQh60NOv5jeR9MiAMB9UOK6.hS2TuQhSX3NST0UveW', 'role': '1', 'as...
+           │    └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB118130>
+           └ <bound method ClauseElement._execute_on_connection of <sqlalchemy.sql.dml.Insert object at 0x000001E3CB1558A0>>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 320, in _execute_on_connection
+    return connection._execute_clauseelement(
+           │          └ <function Connection._execute_clauseelement at 0x000001E3C9D2CDC0>
+           └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB118130>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1447, in _execute_clauseelement
+    ret = self._execute_context(
+          │    └ <function Connection._execute_context at 0x000001E3C9D2D090>
+          └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB118130>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1806, in _execute_context
+    self._handle_dbapi_exception(
+    │    └ <function Connection._handle_dbapi_exception at 0x000001E3C9D2D240>
+    └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB118130>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1987, in _handle_dbapi_exception
+    util.raise_(
+    │    └ <function raise_ at 0x000001E3C9980670>
+    └ <module 'sqlalchemy.util' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\sqlalchemy\\util...
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1763, in _execute_context
+    self.dialect.do_execute(
+    │    │       └ <function DefaultDialect.do_execute at 0x000001E3C9DE9AB0>
+    │    └ <sqlalchemy.dialects.mysql.pymysql.MySQLDialect_pymysql object at 0x000001E3CA9BAD70>
+    └ <sqlalchemy.engine.base.Connection object at 0x000001E3CB118130>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 717, in do_execute
+    cursor.execute(statement, parameters)
+    │      │       │          └ {'username': 'brownlu123', 'password_hash': '$2b$12$wH.r48mYgTriQh60NOv5jeR9MiAMB9UOK6.hS2TuQhSX3NST0UveW', 'role': '1', 'ass...
+    │      │       └ 'INSERT INTO users (username, password_hash, `role`, associated_id) VALUES (%(username)s, %(password_hash)s, %(role)s, %(asso...
+    │      └ <function Cursor.execute at 0x000001E3CAA7F5B0>
+    └ <pymysql.cursors.Cursor object at 0x000001E3CB11B970>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\cursors.py", line 148, in execute
+    result = self._query(query)
+             │    │      └ "INSERT INTO users (username, password_hash, `role`, associated_id) VALUES ('brownlu123', '$2b$12$wH.r48mYgTriQh60NOv5jeR9MiA...
+             │    └ <function Cursor._query at 0x000001E3CAA7FA30>
+             └ <pymysql.cursors.Cursor object at 0x000001E3CB11B970>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\cursors.py", line 310, in _query
+    conn.query(q)
+    │    │     └ "INSERT INTO users (username, password_hash, `role`, associated_id) VALUES ('brownlu123', '$2b$12$wH.r48mYgTriQh60NOv5jeR9MiA...
+    │    └ <function Connection.query at 0x000001E3CAABAD40>
+    └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+    │    │                │    │                             └ False
+    │    │                │    └ <function Connection._read_query_result at 0x000001E3CAABB370>
+    │    │                └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+    │    └ 0
+    └ <pymysql.connections.Connection object at 0x000001E3CAB28820>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 775, in _read_query_result
+    result.read()
+    │      └ <function MySQLResult.read at 0x000001E3CAABBB50>
+    └ <pymysql.connections.MySQLResult object at 0x000001E3CB11AB60>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+                   │    └ None
+                   └ <pymysql.connections.MySQLResult object at 0x000001E3CB11AB60>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+    │      └ <function MysqlPacket.raise_for_error at 0x000001E3CAAB95A0>
+    └ <pymysql.protocol.MysqlPacket object at 0x000001E3CB11ABC0>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    │   │                     │    └ <member '_data' of 'MysqlPacket' objects>
+    │   │                     └ <pymysql.protocol.MysqlPacket object at 0x000001E3CB11ABC0>
+    │   └ <function raise_mysql_exception at 0x000001E3CAA7C790>
+    └ <module 'pymysql.err' from 'E:\\网站\\web\\web\\fastapi-backend\\pythonProject\\.venv\\lib\\site-packages\\pymysql\\err.py'>
+
+  File "E:\网站\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+          │          │      └ "Field 'user_id' doesn't have a default value"
+          │          └ 1364
+          └ <class 'pymysql.err.OperationalError'>
+
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1364, "Field 'user_id' doesn't have a default value")
+[SQL: INSERT INTO users (username, password_hash, `role`, associated_id) VALUES (%(username)s, %(password_hash)s, %(role)s, %(associated_id)s)]
+[parameters: {'username': 'brownlu123', 'password_hash': '$2b$12$wH.r48mYgTriQh60NOv5jeR9MiAMB9UOK6.hS2TuQhSX3NST0UveW', 'role': '1', 'associated_id': None}]
+(Background on this error at: http://sqlalche.me/e/14/e3q8)
+2024-02-10 16:20:51.906 | INFO     | app.api.app_v1.endpoints.user:create_user:261 - 创建用户
+2024-02-10 16:20:52.831 | SUCCESS  | app.api.app_v1.endpoints.user:create_user:277 - 创建用户成功
+2024-02-10 16:44:35.732 | INFO     | app.api.app_v1.endpoints.user:get_current_user:369 - None
+2024-02-10 16:45:33.099 | INFO     | app.api.app_v1.endpoints.user:get_current_user:369 - userinfo

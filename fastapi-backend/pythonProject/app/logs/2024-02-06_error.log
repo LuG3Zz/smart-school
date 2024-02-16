@@ -1,0 +1,613 @@
+2024-02-06 10:47:17.907 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 10:47:24.481 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:13:08.423 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:13:28.457 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:13:59.223 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:14:09.898 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:14:14.034 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:14:18.463 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:15:21.076 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:17:00.122 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:17:52.296 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:17:52.327 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:18:13.141 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:18:13.170 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:18:29.356 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:18:29.383 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:19:27.792 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:19:38.222 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:19:38.254 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:25:28.838 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:25:28.869 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:29:19.219 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:29:19.250 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:32:18.674 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 176, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+ValueError: not enough values to unpack (expected 2, got 1)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 14:32:32.310 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:33:43.913 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:34:34.074 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:35:56.741 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:38:35.270 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:39:39.542 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 14:40:26.313 | INFO     | routers.user:login:92 - login£º234²»´æÔÚ
+2024-02-06 14:49:17.527 | INFO     | routers.user:login:92 - login£º123²»´æÔÚ
+2024-02-06 15:22:17.149 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 185, in _load
+    header = json.loads(header_data.decode("utf-8"))
+  File "E:\python\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "E:\python\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "E:\python\lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 11 (char 10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 187, in _load
+    raise JWSError("Invalid header string: %s" % e)
+jose.exceptions.JWSError: Invalid header string: Expecting ',' delimiter: line 1 column 11 (char 10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Invalid header string: Expecting ',' delimiter: line 1 column 11 (char 10)
+
+2024-02-06 15:28:34.821 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 185, in _load
+    header = json.loads(header_data.decode("utf-8"))
+  File "E:\python\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "E:\python\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "E:\python\lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 1 column 11 (char 10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 187, in _load
+    raise JWSError("Invalid header string: %s" % e)
+jose.exceptions.JWSError: Invalid header string: Expecting ',' delimiter: line 1 column 11 (char 10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Invalid header string: Expecting ',' delimiter: line 1 column 11 (char 10)
+
+2024-02-06 15:29:16.810 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 178, in _load
+    header_data = base64url_decode(header_segment)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\utils.py", line 78, in base64url_decode
+    return base64.urlsafe_b64decode(input)
+  File "E:\python\lib\base64.py", line 133, in urlsafe_b64decode
+    return b64decode(s)
+  File "E:\python\lib\base64.py", line 87, in b64decode
+    return binascii.a2b_base64(s)
+binascii.Error: Invalid base64-encoded string: number of data characters (29) cannot be 1 more than a multiple of 4
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 180, in _load
+    raise JWSError("Not enough segments")
+jose.exceptions.JWSError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Not enough segments
+
+2024-02-06 15:32:16.868 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 185, in _load
+    header = json.loads(header_data.decode("utf-8"))
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x88 in position 9: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 187, in _load
+    raise JWSError("Invalid header string: %s" % e)
+jose.exceptions.JWSError: Invalid header string: 'utf-8' codec can't decode byte 0x88 in position 9: invalid start byte
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Invalid header string: 'utf-8' codec can't decode byte 0x88 in position 9: invalid start byte
+
+2024-02-06 15:33:40.988 | ERROR    | routers.user:get_cure_user:84 - Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 185, in _load
+    header = json.loads(header_data.decode("utf-8"))
+  File "E:\python\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "E:\python\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "E:\python\lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting ':' delimiter: line 1 column 9 (char 8)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 142, in decode
+    payload = jws.verify(token, key, algorithms, verify=verify_signature)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 70, in verify
+    header, payload, signing_input, signature = _load(token)
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jws.py", line 187, in _load
+    raise JWSError("Invalid header string: %s" % e)
+jose.exceptions.JWSError: Invalid header string: Expecting ':' delimiter: line 1 column 9 (char 8)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\routers\user.py", line 73, in get_cure_user
+    payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+  File "E:\ÍøÕ¾\web\web\fastapi-backend\pythonProject\.venv\lib\site-packages\jose\jwt.py", line 144, in decode
+    raise JWTError(e)
+jose.exceptions.JWTError: Invalid header string: Expecting ':' delimiter: line 1 column 9 (char 8)
+

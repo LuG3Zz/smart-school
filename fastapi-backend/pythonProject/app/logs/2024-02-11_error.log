@@ -1,0 +1,5 @@
+2024-02-11 11:05:10.054 | INFO     | app.api.app_v1.endpoints.user:create_user:262 - 创建用户
+2024-02-11 11:06:02.536 | INFO     | app.api.app_v1.endpoints.user:create_user:262 - 创建用户
+2024-02-11 11:06:02.909 | INFO     | app.api.app_v1.endpoints.user:create_user:262 - 创建用户
+2024-02-11 11:06:55.398 | INFO     | app.api.app_v1.endpoints.user:create_user:262 - 创建用户
+2024-02-11 11:06:57.005 | SUCCESS  | app.api.app_v1.endpoints.user:create_user:278 - 创建用户成功
