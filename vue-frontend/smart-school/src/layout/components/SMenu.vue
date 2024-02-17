@@ -10,17 +10,18 @@
     >
       <!-- Submenu example -->
       <div class="flex flex-col mx-auto my-3">
-      <el-sub-menu v-for="submenu in submenus" :key="submenu.name" :index="submenu.index">
-        <template #title>
-          <el-icon :size="20"><component :is="submenu.icon" /></el-icon>
-          <span>{{ submenu.name }}</span>
-        </template>
-        <el-menu-item v-for="item in submenu.children" :key="item.name" :index="item.href">
-          <el-icon :size="20"><component :is="item.icon" /></el-icon>
-          <span>{{ item.name }}</span>
-        </el-menu-item>
-      </el-sub-menu>
-   </div>
+
+        <el-sub-menu v-for="submenu in submenus" :key="submenu.name" :index="submenu.index">
+          <template #title>
+            <el-icon :size="20"><component :is="submenu.icon" /></el-icon>
+            <span>{{ submenu.name }}</span>
+          </template>
+          <el-menu-item v-for="item in submenu.children" :key="item.name" :index="item.href">
+            <el-icon :size="20"><component :is="item.icon" /></el-icon>
+            <span>{{ item.name }}</span>
+          </el-menu-item>
+        </el-sub-menu>
+     </div>
     </el-menu>
   </el-aside>
 </template>

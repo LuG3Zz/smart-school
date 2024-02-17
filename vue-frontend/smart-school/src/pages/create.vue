@@ -15,12 +15,12 @@
                 <span class="text-4xl text-dark-500 mx-12">学工平台</span>
                 <div class="flex items-center justify-center space-x-2 text-gray-300 my-5">
                     <span class="my-2 h-[1px] w-16 bg-gray-300"></span>
-                    <span>用户登录</span>
+                    <span>用户注册</span>
                     <span class="my-3 h-[1px] w-16 bg-gray-300"></span>
                 </div>
                 <el-form ref="formRef" :model="form" :rules="rules" class="w-[250px]">
                     <el-form-item prop="username">
-                        <el-input v-model="form.username" placeholder="请输入学号">
+                        <el-input v-model="form.username" placeholder="请输入用户名">
                             <template #prefix>
                                 <el-icon class="el-input__icon">
                                     <User />
@@ -60,7 +60,7 @@
                         </el-input>
                     </el-form-item>
                     <el-button type="primary" round class="w-[250px] bg-cyan-400 " :loading="loading"
-                        @click="onsubmit">登录</el-button>
+                        @click="onsubmit">注册</el-button>
                 </el-form>
             </el-card>
 

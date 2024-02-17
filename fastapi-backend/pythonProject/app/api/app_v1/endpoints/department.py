@@ -23,6 +23,7 @@ def read_department_api(department_id: str, db: Session = Depends(get_db)):
 @departmentRouter.get("/departments/", response_model=List[DepartmentAll])
 def read_departments_api(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     departments = crud.get_departments(db=db, skip=skip, limit=limit)
+
     return reponse(data=jsonable_encoder(departments))
 
 

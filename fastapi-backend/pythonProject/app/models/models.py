@@ -53,7 +53,7 @@ class Teacher(Base):
     gender = Column(String(1))
     contact_info = Column(String(100))
     department_id = Column(Integer, ForeignKey('departments.department_id'))
-    position = Column(String(50))
+    position = Column(String(50), ForeignKey('roles.name'))
     specialization = Column(String(100))
 
 
@@ -64,6 +64,7 @@ class Course(Base):
     name = Column(String(100))
     description = Column(Text)
     credits = Column(Integer)
+    semester = Column(String(20))  # 添加学期字段
     department_id = Column(Integer, ForeignKey('departments.department_id'))
     teacher_id = Column(Integer, ForeignKey('teachers.teacher_id'))
 
@@ -74,7 +75,6 @@ class StudentCourse(Base):
     enrollment_id = Column(Integer, primary_key=True, index=True)
     student_id = Column(String(20), ForeignKey('students.student_id'))
     course_id = Column(Integer, ForeignKey('courses.course_id'))
-    semester = Column(String(20))
     grade = Column(String(10))
 
 

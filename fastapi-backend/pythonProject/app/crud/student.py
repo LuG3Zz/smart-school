@@ -1,5 +1,5 @@
 from app import models
-from app.models.models import Student,Department
+from app.models.models import Student, Department, Teacher
 from app.schemas.student import *
 from sqlalchemy.orm import Session
 
@@ -14,6 +14,10 @@ def create_student(db: Session, student: StudentCreate):
 
 def get_student(db: Session, student_id: str):
     return db.query(Student).filter(Student.student_id == student_id).first()
+
+
+def get_teacher(db: Session, teacher_id: str):
+    return db.query(Teacher).filter(Teacher.teacher_id == teacher_id).first()
 
 
 def update_student(db: Session, student_id: str, student: StudentUpdate):
@@ -31,7 +35,7 @@ def get_students(db: Session, skip: int = 0, limit: int = 100):
     return db.query(Student).offset(skip).limit(limit).all()
 
 
-def get_department_by_id(db:Session,department_id):
+def get_department_by_id(db: Session, department_id):
     return db.query(Department).filter(Department.department_id == department_id).first()
 
 

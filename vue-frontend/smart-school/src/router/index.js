@@ -22,6 +22,13 @@ const routes = [
         path: "/",
         name:"Student",
         component: Student,
+        children:[{
+            path: "/",
+            name: "/",
+            component: Index,
+            meta: { title: "首页" }
+        },
+    ]
         
     },
     {
@@ -47,12 +54,7 @@ const routes = [
  
 //动态路由，匹配菜单动态添加路由
 const asyncRoutes=
-    [{
-        path: "/",
-        name: "/",
-        component: Index,
-        meta: { title: "首页" }
-    },
+    [
     {
         path: "/personal-info",
         name: "/personal-info",

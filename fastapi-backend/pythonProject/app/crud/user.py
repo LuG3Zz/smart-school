@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 # from app.models.models import *
 from app.models.models import *
 from app.schemas import *
+from fastapi.encoders import jsonable_encoder
 
 
 # 通过id查询用户
@@ -20,6 +21,7 @@ def get_user_username(db: Session, username: str):
 def get_info_by_username(db: Session, user_name: str):
     # 查询用户信息
     user_info = db.query(User).filter(User.username == user_name).first()
+    print("user_info", jsonable_encoder(user_info))
 
     # 检查是否找到用户
     if user_info is None:
@@ -27,6 +29,7 @@ def get_info_by_username(db: Session, user_name: str):
 
     # 根据用户角色获取相关信息
     role_name = get_role_name(db, user_info.role).name
+    print("role_name",role_name)
     if role_name == "学生":
         return db.query(Student).filter(Student.student_id == user_info.associated_id).first()
     else:

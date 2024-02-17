@@ -9,12 +9,6 @@
             <nav class="navigation">
                 <ul class="flex space-x-4">
                     <li><a href="#" class="text-white hover:text-blue-300">主页</a></li>
-                    <li><a href="#" class="text-white hover:text-blue-300">学员信息管理</a></li>
-                    <li><a href="#" class="text-white hover:text-blue-300">迎新管理</a></li>
-                    <li><a href="#" class="text-white hover:text-blue-300">学生工作</a></li>
-                    <li><a href="#" class="text-white hover:text-blue-300">宿舍管理</a></li>
-                    <li><a href="#" class="text-white hover:text-blue-300">离校管理</a></li>
-                    <li><a href="#" class="text-white hover:text-blue-300">数据分析</a></li>
                 </ul>
             </nav>
             <div class="flex items-center space-x-5 mr-15">
@@ -27,7 +21,7 @@
                     </span>
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item>个人中心</el-dropdown-item>
+                            <el-dropdown-item @click="$router.push({ path: '/' })">个人中心</el-dropdown-item>
                             <el-dropdown-item @click="formDrawerRef.open()">修改密码</el-dropdown-item>
 
                             <el-dropdown-item @click="Logout">退出登录</el-dropdown-item>

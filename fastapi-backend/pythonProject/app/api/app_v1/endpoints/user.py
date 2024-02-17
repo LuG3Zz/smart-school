@@ -3,8 +3,8 @@ from fastapi import Depends, HTTPException, Header
 from fastapi.encoders import jsonable_encoder
 
 from app.crud import user
-from app.crud.user import get_user_username, db_create_user, get_role_name, get_info_by_username,get_user_by_id
-from app.crud.student import  get_student
+from app.crud.user import get_user_username, db_create_user, get_role_name, get_info_by_username, get_user_by_id
+from app.crud.student import get_student, get_teacher
 from app.schemas import *
 from app.util.get_db import get_db
 from sqlalchemy.orm import Session
@@ -27,7 +27,6 @@ ROLE_TO_MENUS = {
             "index": "1",
             "icon": "user",
             "children": [
-                {"href": "/", "icon": "menu", "name": "首页"},
                 {"href": "/personal-info", "icon": "InfoFilled", "name": "个人信息"},
                 {"href": "/academic-info", "icon": "notebook", "name": "学业信息"},
                 {"href": "/security-settings", "icon": "search", "name": "个人违纪处分查询"}
@@ -80,13 +79,13 @@ ROLE_TO_MENUS = {
         }
     ],
     "departmentHead": [
+
         {
-            "name": "学员信息查看",
+            "name": "院系信息查看",
             "index": "1",
             "icon": "document",
             "children": [
-                {"href": "/", "icon": "menu", "name": "首页"},
-                {"href": "/student-profiles", "icon": "folder-open", "name": "学生档案查看"},
+                {"href": "/departments-info-view", "icon": "folder-open", "name": "院系信息查看"},
                 {"href": "/academic-performance", "icon": "bar-chart", "name": "学业成绩查看"},
                 {"href": "/discipline-records", "icon": "warning-outline", "name": "违纪记录查看"}
             ]
@@ -136,7 +135,6 @@ ROLE_TO_MENUS = {
             "index": "1",
             "icon": "document",
             "children": [
-                {"href": "/", "icon": "menu", "name": "首页"},
                 {"href": "/student-management", "icon": "folder", "name": "学生信息管理"},
                 {"href": "/record-lookup", "icon": "search", "name": "档案查询"}
             ]
@@ -178,7 +176,6 @@ ROLE_TO_MENUS = {
             "index": "1",
             "icon": "document",
             "children": [
-                {"href": "/", "icon": "menu", "name": "首页"},
                 {"href": "/student-records", "icon": "folder", "name": "学生档案维护"},
                 {"href": "/record-query", "icon": "search", "name": "档案查询"},
                 {"href": "/student-transfer", "icon": "swap", "name": "学籍调动申请"},
@@ -265,21 +262,32 @@ def get_password_hash(password):
 def create_user(user: UserCreate, db: Session = Depends(get_db)):
     logger.info("创建用户")
     role_name = get_role_name(db, user.role).name
+    db_crest = get_user_username(db, user.username)
+    if db_crest:
+        raise HTTPException(status_code=404, detail="用户名重复")
     if len(user.username) < 8 or len(user.username) > 16:
         raise HTTPException(status_code=404, detail="用户名长度应该是8-16位")
-    if role_name  not in ["院系管理员", '学生', "辅导员", "学生处管理员"]:
-        return reponse(code=100102, message="不存在该身份", data="")
     if role_name == "学生":
         if user.associated_id is None:
             raise HTTPException(status_code=404, detail="学生的学号不能为空")
-        elif get_user_by_id(db,user.associated_id) is None:
+        elif get_user_by_id(db, user.associated_id):
             raise HTTPException(status_code=404, detail="该学号已被绑定")
 
         elif get_student(db, student_id=user.associated_id) is None:
             raise HTTPException(status_code=404, detail="学生的学号不存在")
-    db_crest = get_user_username(db, user.username)
-    if db_crest:
-        return reponse(code=100104, message="用户名重复", data="")
+    if role_name != "学生":
+        if user.associated_id is None:
+            raise HTTPException(status_code=404, detail="工号不能为空")
+        elif get_user_by_id(db, user.associated_id):
+            raise HTTPException(status_code=404, detail="该工号已被绑定")
+        elif get_teacher(db, teacher_id=user.associated_id) is None:
+            raise HTTPException(status_code=404, detail="教师的工号不存在")
+        else:
+            try:
+                if get_teacher(db,user.associated_id).position != role_name:
+                    raise HTTPException(status_code=404, detail="教师的角色不匹配")
+            except:
+                raise HTTPException(status_code=404, detail="角色不匹配")
     try:
         password_hash = get_password_hash(user.password_hash)
         user.password_hash = password_hash

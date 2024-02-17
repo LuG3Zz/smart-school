@@ -89,12 +89,12 @@
 import { ref, reactive, computed } from "vue"
 import FormDrawer from "~/layout/components/FormDrawer.vue";
 import {
-  get_student_list,
-  create_student,
-  update_student,
-  delete_student,
+  get_department_list,
+  create_department,
+  update_department,
+  delete_department,
   get_departments,
-} from "~/api/studentadmin"
+} from "~/api/department"
 import {
   notice
 } from "~/util/util"
@@ -109,31 +109,6 @@ const limit = ref(10)
 const value = ref('')
 const options_department = ref([])
 
-const options_gender = [
-  {
-    value: '男',
-    label: '男',
-  },
-  {
-    value: '女',
-    label: '女',
-  },
-]
-
-const options_status = [
-  {
-    value: '在读',
-    label: '在读',
-  },
-  {
-    value: '休学',
-    label: '休学',
-  },
-  {
-    value: '退学',
-    label: '退学',
-  },
-]
 // 获取数据
 function getData(p = null) {
   if (typeof p == "number") {

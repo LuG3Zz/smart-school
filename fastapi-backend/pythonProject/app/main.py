@@ -5,6 +5,7 @@ from aioredis import create_redis_pool, Redis
 from app.api.app_v1.endpoints.course import *
 from app.api.app_v1.endpoints.department import departmentRouter
 from app.api.app_v1.endpoints.student import studentRouter
+from app.api.app_v1.endpoints.student_course import studentCourseRouter
 from app.api.app_v1.endpoints.user import *
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
@@ -63,7 +64,7 @@ app.include_router(usersRouter, prefix="/user", tags=['users'])
 app.include_router(courseRouter, prefix='/course', tags=['course'])
 app.include_router(studentRouter, prefix='/student', tags=['student'])
 app.include_router(departmentRouter, prefix='/department', tags=['department'])
+app.include_router(studentCourseRouter, prefix='/student_course', tags=['studentCourse'])
 if __name__ == '__main__':
     import uvicorn
-
     uvicorn.run(app='main:app', host="127.0.0.1", port=8000, reload=True, debug=True)
