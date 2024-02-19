@@ -16,7 +16,9 @@ import AffairsinQuiry from "~/pages/student/affairsinquiry.vue"
 import DormitoryInfoy from "~/pages/student/dormitoryinfoy.vue"
 import StayApplication from "~/pages/student/stayapplication.vue"
 import RepairRequest from "~/pages/student/repairrequest.vue"
-import StudentRecords from "~/pages/studentadmin/studentlist.vue"
+import CourseInfo from "~/pages/student/coursesinfo.vue"
+import StudentsList from "~/pages/studentadmin/studentlist.vue"
+import StudentCourseManager from "~/pages/studentcourse/coursemanager.vue"
 const routes = [
     {
         path: "/",
@@ -114,11 +116,24 @@ const asyncRoutes=
         meta: { title: "假期留校申请" }
     },
     {
-        path: "/student-records",
-        name: "/student-records",
-        component: StudentRecords,
+        path: "/students-list",
+        name: "/students-list",
+        component: StudentsList,
         meta: { title: "学生列表" }
     },
+    {
+        path: "/course-manager",
+        name: "/course-manager",
+        component: StudentCourseManager,
+        meta: { title: "课程管理列表" }
+    },
+    {
+        path: "/courses-info",
+        name: "/courses-info",
+        component: CourseInfo,
+        meta: { title: "课程管理列表" }
+    },
+    
 
 
     ]

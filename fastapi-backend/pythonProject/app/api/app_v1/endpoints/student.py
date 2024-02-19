@@ -20,11 +20,11 @@ def read_students_api(skip: int = 0, limit: int = 100, db: Session = Depends(get
     d = {}
     for i in students:
         try:
-            d["department_name"] = get_department_by_id(db,i.get("department_id")).name
+            d["department_name"] = get_department_by_id(db, i.get("department_id")).name
             i.update(d)
         except:
             pass
-        
+
     total = db.query(Student).count()
     data = {"list": students, "total": total}
 
@@ -49,3 +49,6 @@ def delete_student_api(student_id: str, db: Session = Depends(get_db)):
         if db_student is None:
             raise HTTPException(status_code=404, detail="Student not found")
     return reponse(data=jsonable_encoder(db_student))
+
+
+

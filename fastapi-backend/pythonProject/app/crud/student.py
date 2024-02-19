@@ -16,7 +16,7 @@ def get_student(db: Session, student_id: str):
     return db.query(Student).filter(Student.student_id == student_id).first()
 
 
-def get_teacher(db: Session, teacher_id: str):
+def get_teacher_by_id(db: Session, teacher_id: str):
     return db.query(Teacher).filter(Teacher.teacher_id == teacher_id).first()
 
 

@@ -12,15 +12,10 @@
       </el-tooltip>
     </div>
     <el-table :data="tableData" stripe style="width: 100%" v-loading="loading">
-      <el-table-column prop="student_id" label="学号" />
-      <el-table-column prop="date_of_birth" label="生日" />
-      <el-table-column prop="name" label="姓名" />
-      <el-table-column prop="gender" label="性别" />
-      <el-table-column prop="contact_info" label="联系电话" />
-      <el-table-column prop="status" label="状态" />
-      <el-table-column prop="department_name" label="院系" />
-      <el-table-column prop="major" label="专业" />
-      <el-table-column prop="enrollment_date" label="注册时间" />
+
+      <el-table-column prop="name" label="学院名称" />
+      <el-table-column prop="departmen_id" label="学院编号" />
+      <el-table-column prop="head_id" label="学院负责人" />
       <el-table-column label="操作" width="180" align="center">
         <template #default="scope">
           <el-button type="primary" size="small" text @click="handleEdit(scope.row)">修改</el-button>
@@ -93,7 +88,7 @@ import {
   create_department,
   update_department,
   delete_department,
-  get_departments,
+  get_department_list,
 } from "~/api/department"
 import {
   notice
@@ -116,17 +111,11 @@ function getData(p = null) {
   }
 
   loading.value = true
-  get_student_list(currentPage.value)
+  get_department_list(currentPage.value)
     .then(res => {
       tableData.value = res.data.list
       total.value = res.data.total
       console.log(res.data)
-    })
-  get_departments().then(res => {
-    options_department.value = res.data
-  })
-    .finally(() => {
-      loading.value = false
     })
 }
 
@@ -152,16 +141,10 @@ const handleDelete = (id) => {
 const formDrawerRef = ref(null)
 const formRef = ref(null)
 const form = reactive({
-  student_id: "",
-  name: "",
-  gender: "",
-  date_of_birth: "",
-  department_id: "",
-  major: "",
-  class_: "",
-  enrollment_date: "",
   contact_info: "",
-  status: ""
+  name: "",
+  department_id: "",
+  head_id:""
 })
 const rules = {
   student_id: [{

@@ -1,8 +1,10 @@
+from sqlalchemy import func
+
 from app import models
 from app import schemas
 
 from sqlalchemy.orm import Session
-from app.models.models import StudentCourse
+from app.models.models import StudentCourse, Course
 from app.schemas import StudentCourseUpdate, StudentCourseCreate
 from app.models import models
 
@@ -19,7 +21,25 @@ def get_student_course(db: Session, enrollment_id: str) -> StudentCourse:
     return db.query(StudentCourse).filter(StudentCourse.enrollment_id == enrollment_id).first()
 
 
-def get_student_courses(db: Session, student_id: str, skip: int = 0, limit: int = 10) -> list[StudentCourse]:
+def get_student_course_count(db: Session, student_id: str) -> int:
+    return db.query(StudentCourse).filter(StudentCourse.student_id == student_id).count()
+
+
+def get_student_fail_count(db: Session, student_id: str) -> int:
+    return db.query(StudentCourse).filter(StudentCourse.student_id == student_id).filter(
+        StudentCourse.grade < 60).count()
+
+
+def get_student_credits(db: Session, student_id: str) -> int:
+    total_credits = db.query(func.sum(Course.credits)).join(
+        StudentCourse, Course.course_id == StudentCourse.course_id
+    ).filter(
+        StudentCourse.student_id == student_id
+    ).scalar()
+    return total_credits
+
+
+def get_student_courses_by_student_id(db: Session, student_id: str, skip: int = 0, limit: int = 10):
     return db.query(StudentCourse).filter(StudentCourse.student_id == student_id).offset(skip).limit(limit).all()
 
 

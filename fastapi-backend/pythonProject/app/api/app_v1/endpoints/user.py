@@ -3,8 +3,8 @@ from fastapi import Depends, HTTPException, Header
 from fastapi.encoders import jsonable_encoder
 
 from app.crud import user
-from app.crud.user import get_user_username, db_create_user, get_role_name, get_info_by_username, get_user_by_id
-from app.crud.student import get_student, get_teacher
+from app.crud.user import get_user_username, db_create_user, get_role_obj, get_info_by_username, get_user_by_id
+from app.crud.student import get_student, get_teacher_by_id
 from app.schemas import *
 from app.util.get_db import get_db
 from sqlalchemy.orm import Session
@@ -29,6 +29,7 @@ ROLE_TO_MENUS = {
             "children": [
                 {"href": "/personal-info", "icon": "InfoFilled", "name": "个人信息"},
                 {"href": "/academic-info", "icon": "notebook", "name": "学业信息"},
+                {"href": "/courses-info", "icon": "notebook", "name": "课程信息"},
                 {"href": "/security-settings", "icon": "search", "name": "个人违纪处分查询"}
             ]
         },
@@ -176,8 +177,10 @@ ROLE_TO_MENUS = {
             "index": "1",
             "icon": "document",
             "children": [
+                {"href": "/students-list", "icon": "folder", "name": "学生列表管理"},
                 {"href": "/student-records", "icon": "folder", "name": "学生档案维护"},
                 {"href": "/record-query", "icon": "search", "name": "档案查询"},
+                {"href": "/course-manager", "icon": "book", "name": "课程管理"},
                 {"href": "/student-transfer", "icon": "swap", "name": "学籍调动申请"},
                 {"href": "/discipline-query", "icon": "warning", "name": "违纪处分查询"}
             ]
@@ -261,7 +264,7 @@ def get_password_hash(password):
 @usersRouter.post("/create", tags=["users"])
 def create_user(user: UserCreate, db: Session = Depends(get_db)):
     logger.info("创建用户")
-    role_name = get_role_name(db, user.role).name
+    role_name = get_role_obj(db, user.role).name
     db_crest = get_user_username(db, user.username)
     if db_crest:
         raise HTTPException(status_code=404, detail="用户名重复")
@@ -280,11 +283,11 @@ def create_user(user: UserCreate, db: Session = Depends(get_db)):
             raise HTTPException(status_code=404, detail="工号不能为空")
         elif get_user_by_id(db, user.associated_id):
             raise HTTPException(status_code=404, detail="该工号已被绑定")
-        elif get_teacher(db, teacher_id=user.associated_id) is None:
+        elif get_teacher_by_id(db, teacher_id=user.associated_id) is None:
             raise HTTPException(status_code=404, detail="教师的工号不存在")
         else:
             try:
-                if get_teacher(db,user.associated_id).position != role_name:
+                if get_teacher_by_id(db, user.associated_id).position != role_name:
                     raise HTTPException(status_code=404, detail="教师的角色不匹配")
             except:
                 raise HTTPException(status_code=404, detail="角色不匹配")
@@ -327,7 +330,7 @@ async def get_cure_user_by_token(request: Request, token: Optional[str] = Header
         useris = await request.app.state.redis.get(username)
         if not useris and useris != token:
             raise credentials_FOR_exception
-        userrole = get_role_name(db, get_user_username(db, username).role).name
+        userrole = get_role_obj(db, get_user_username(db, username).role).name
         user = UsernameRole(username=username, role=userrole)
         return user
     except JWTError:

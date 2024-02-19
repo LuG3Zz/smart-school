@@ -28,7 +28,7 @@ def get_info_by_username(db: Session, user_name: str):
         return None  # 或者抛出异常，根据您的需求
 
     # 根据用户角色获取相关信息
-    role_name = get_role_name(db, user_info.role).name
+    role_name = get_role_obj(db, user_info.role).name
     print("role_name",role_name)
     if role_name == "学生":
         return db.query(Student).filter(Student.student_id == user_info.associated_id).first()
@@ -36,7 +36,7 @@ def get_info_by_username(db: Session, user_name: str):
         return db.query(Teacher).filter(Teacher.teacher_id == user_info.associated_id).first()
 
 
-def get_role_name(db: Session, id: id):
+def get_role_obj(db: Session, id: id):
     return db.query(Role).filter(Role.id == id).first()
 
 
