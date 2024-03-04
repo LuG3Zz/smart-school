@@ -9,7 +9,7 @@
       active-text-color="#ffd04b"
     >
       <!-- Submenu example -->
-      <div class="flex flex-col mx-auto my-3">
+      <div class="flex flex-col my-3">
 
         <el-sub-menu v-for="submenu in submenus" :key="submenu.name" :index="submenu.index">
           <template #title>
@@ -52,8 +52,8 @@ const submenus = computed(()=>store.state.menus)
 
 <style >
 .sidebar {
-  width: 240px;
-  min-height: 87.5vh; 
+  width: 250px;
+  min-height: 130vh; 
   @apply  bg-gradient-to-b from-green-500 to-blue-200 my-5 ml-5  
 
 }

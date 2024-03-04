@@ -8,17 +8,22 @@ import Student from "~/layout/student.vue"
 import NotFound from "~/pages/404.vue"
 import Login from "~/pages/login.vue"
 import Create from "~/pages/create.vue"
-import PersonInfo from "~/pages/student/personinfo.vue"
-import SecuritySetting from "~/pages/student/securitysetting.vue"
-import AcademicInfo from "~/pages/student/academicinfo.vue"
-import AffairsApplication from "~/pages/student/affairsapplication.vue"
-import AffairsinQuiry from "~/pages/student/affairsinquiry.vue"
-import DormitoryInfoy from "~/pages/student/dormitoryinfoy.vue"
-import StayApplication from "~/pages/student/stayapplication.vue"
-import RepairRequest from "~/pages/student/repairrequest.vue"
+import CourseSelection from "~/pages/student/CourseSelection/courseselection.vue"
+import Discipline from "~/pages/student/discipline/discipline.vue"
 import CourseInfo from "~/pages/student/coursesinfo.vue"
 import StudentsList from "~/pages/studentadmin/studentlist.vue"
 import StudentCourseManager from "~/pages/studentcourse/coursemanager.vue"
+import Departmentinfo from "~/pages/departmenthead/departmentlist.vue"
+import MyCourseInfo from "~/pages/teacher/coursemanager.vue"
+import AffairsRecord from "~/pages/affairsrecord/list.vue"
+import NotificationList from "~/pages/notification/list.vue"
+import LeaveSchool from "~/pages/leave_school/list.vue"
+import StudentAnalytics from "~/pages/studentanalytics/index.vue"
+import DormitoryInfo from "~/pages/dormitory/list.vue"
+import Info from "~/pages/info.vue"
+
+import ImageList from "~/pages/image/list.vue"
+
 const routes = [
     {
         path: "/",
@@ -57,64 +62,7 @@ const routes = [
 //动态路由，匹配菜单动态添加路由
 const asyncRoutes=
     [
-    {
-        path: "/personal-info",
-        name: "/personal-info",
-        component: PersonInfo,
-        meta: {
-            title: "个人信息"
-        }
-    },
-    {
-        path: "/academic-info",
-        name: "/academic-info",
-        component: AcademicInfo,
-        meta: {
-            title: "学业信息"
-        }
-    },
-    {
-        path: "/security-settings",
-        name: "/security-settings",
-        component: SecuritySetting,
-        meta: {
-            title: "安全设置"
-        }
-    },
-    {
-        path: "/affairs-application",
-        name: "/affairs-application",
-        component: AffairsApplication,
-        meta: {
-            title: "事务申请"
-        }
-    },
-    {
-        path: "/affairs-inquiry",
-        name: "/affairs-inquiry",
-        component: AffairsinQuiry,
-        meta: {
-            title: "申请查询"
-        }
-    },
-    {
-        path: "/dormitory-info",
-        name: "/dormitory-info",
-        component: DormitoryInfoy,
-        meta: { title: "宿舍信息" }
-    },
-    {
-        path: "/repair-request",
-        name: "/repair-request",
-        component: RepairRequest,
-        meta: { title: "报修服务" }
-    },
-    {
-        path: "/stay-application",
-        name: "/stay-application",
-        component: StayApplication,
-        meta: { title: "假期留校申请" }
-    },
+                            
     {
         path: "/students-list",
         name: "/students-list",
@@ -133,7 +81,72 @@ const asyncRoutes=
         component: CourseInfo,
         meta: { title: "课程管理列表" }
     },
-    
+    {
+        path: "/departments-info-view",
+        name: "/departments-info-view",
+        component: Departmentinfo,
+        meta: { title: "院系管理列表" }
+    },
+    {
+        path: "/my-course-info-view",
+        name: "/my-course-info-view",
+        component: MyCourseInfo,
+        meta: { title: "管理的课程" }
+    },
+    {
+        path: "/course-selection",
+        name: "/course-selection",
+        component: CourseSelection,
+        meta: { title: "课程选择" }
+    },
+    {
+        path: "/discipline-search",
+        name: "/discipline-search",
+        component: Discipline,
+        meta: { title: "课程选择" }
+    },
+    {
+        path: "/affairs-record",
+        name: "/affairs-record",
+        component: AffairsRecord,
+        meta: { title: "事务记录" }
+    },
+    {
+        path: "/image",
+        name: "/image",
+        component: ImageList,
+        meta: { title: "资料管理" }
+    },
+    {
+        path: "/notification",
+        name: "/notification",
+        component: NotificationList,
+        meta: { title: "通知列表" }
+    },
+    {
+        path: "/checkout-process",
+        name: "/checkout-process",
+        component: LeaveSchool,
+        meta: { title: "离校管理" }
+    },
+    {
+        path: "/student-analytics",
+        name: "/student-analytics",
+        component: StudentAnalytics,
+        meta: { title: "学生分析" }
+    },
+    {
+        path: "/dormitory-info",
+        name: "/dormitory-info",
+        component: DormitoryInfo,
+        meta: { title: "宿舍信息" }
+    },
+    {
+        path: "/info",
+        name: "/info",
+        component: Info,
+        meta: { title: "个人信息" }
+    },
 
 
     ]

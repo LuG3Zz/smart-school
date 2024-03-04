@@ -20,7 +20,7 @@
                 </div >
                     <el-form ref="formRef" :model="form" :rules="rules" class="w-[250px]">
                         <el-form-item prop="username">
-                          <el-input v-model="form.username" placeholder="请输入学号">
+                          <el-input v-model="form.username" placeholder="请输入账号">
                             <template #prefix>
                                 <el-icon class="el-input__icon"><User /></el-icon>
 
@@ -37,6 +37,7 @@
                     <el-button type="primary"  round class="w-[250px] bg-cyan-400 " :loading="loading" @click="onsubmit" >登录</el-button>
                     </el-form>
         </el-card>
+        <el-button class="underline text-light-50" text :loading="loading" @click="router.push('/create')" >没有账号？请注册</el-button>
 
         </el-col>
       </el-row>

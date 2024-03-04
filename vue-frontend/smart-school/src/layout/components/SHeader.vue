@@ -14,7 +14,8 @@
             <div class="flex items-center space-x-5 mr-15">
                 <el-dropdown>
                     <span class="el-dropdown-link cursor-pointer flex items-center text-white hover:text-blue-300">
-                        <el-icon class="mr-2" size="20" color="white">
+                        <el-avatar v-if="store.state.user.student_id" :size="30" class="mr-2" :src="store.state.user.photo" />
+                        <el-icon v-else class="mr-2" size="20" color="white">
                             <User />
                         </el-icon> {{ $store.state.user.name }} <el-icon name="el-icon-arrow-down"
                             class="ml-2"></el-icon>
@@ -23,6 +24,7 @@
                         <el-dropdown-menu>
                             <el-dropdown-item @click="$router.push({ path: '/' })">个人中心</el-dropdown-item>
                             <el-dropdown-item @click="formDrawerRef.open()">修改密码</el-dropdown-item>
+                            <el-dropdown-item v-if="store.state.user.student_id" @click="dialogFormVisible = true">上传头像</el-dropdown-item>
 
                             <el-dropdown-item @click="Logout">退出登录</el-dropdown-item>
                         </el-dropdown-menu>
@@ -31,16 +33,15 @@
                 <!-- Message Notification -->
                 <el-dropdown>
                     <span class="el-dropdown-link cursor-pointer flex items-center text-white">
-                        <el-badge :value="5">
+                        <el-badge :value="count">
                             <el-icon class="text-2xl" color="white">
                                 <MessageBox />
                             </el-icon>
                         </el-badge>
                     </span>
                     <template #dropdown>
-                        <el-dropdown-menu>
-                            <el-dropdown-item>消息 1</el-dropdown-item>
-                            <el-dropdown-item>消息 2</el-dropdown-item>
+                        <el-dropdown-menu @click="()=>{$router.push({ path: '/notification' },count='')}">
+                            <el-dropdown-item v-if="count!=0">{{`${count}条未读消息`}}</el-dropdown-item>
                             <!-- More messages -->
                         </el-dropdown-menu>
                     </template>
@@ -48,6 +49,21 @@
             </div>
         </div>
     </header>
+    <el-dialog v-model="dialogFormVisible" title="上传头像" width="300" destroy-on-close>
+        <el-form :model="form1" class="flex justify-center">
+            <el-form-item label="" prop="photo">
+                <ChooseImage v-model="form1.photo" />
+              </el-form-item>
+        </el-form>
+        <template #footer>
+          <div class="dialog-footer">
+            <el-button @click="dialogFormVisible.value = false">取消</el-button>
+            <el-button type="primary" @click="submit">
+              确定
+            </el-button>
+          </div>
+        </template>
+      </el-dialog>
     <form-drawer ref="formDrawerRef" title="修改密码" size="30%" destroyOnClose @submit="onsubmit">
         <el-form ref="formRef" :model="form" :rules="rules">
             <el-form-item prop="oldpasswd">
@@ -74,12 +90,21 @@ import FormDrawer from '~/layout/components/FormDrawer.vue';
 import { ElDropdown, ElDropdownMenu, ElDropdownItem, ElBadge, ElIcon } from 'element-plus';
 import { msgbox, notice } from '~/util/util';
 import { changepsw } from '~/api/users'
+import { update_student_photo } from '~/api/studentadmin'
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { ref, reactive } from 'vue'
-
+import {get_uncheck_notification_count } from '~/api/notification'
+import ChooseImage from "~/layout/components/ChooseImage.vue";
+const dialogFormVisible = ref(false)
 const store = useStore()
 const router = useRouter()
+const formLabelWidth = '140px'
+const count = ref(0)
+
+get_uncheck_notification_count().then(res => {
+    count.value=res.data.total
+}).catch()
 //密码
 //const drawer = ref(false)
 const {
@@ -142,7 +167,25 @@ function useRepassword() {
         onsubmit
     }
 }
+const form1 = reactive({
+    photo:''
+})
+const submit = () => {
 
+            formDrawerRef.value.showLoading()
+            update_student_photo(store.state.user.student_id,form1).then(res => {
+                if (res.code !== 200) {
+                    notice(res.message, 'info', '提示信息')
+                }
+                else {
+                    notice('修改头像成功', 'success', "提示信息")
+                }
+            }).finally(
+                dialogFormVisible.value = false,
+                location.reload()
+            )
+        }
+    
 </script>
   
 <style scoped>

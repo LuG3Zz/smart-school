@@ -38,3 +38,9 @@ export function update_student(student_id,data){
         status: data.status
     })
 }
+
+export function update_student_photo(student_id,data){
+    return axios.put(`/student/students/${student_id}`,{
+        photo: data.photo
+    })
+}

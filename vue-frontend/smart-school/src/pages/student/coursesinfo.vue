@@ -37,11 +37,11 @@
                 </template>
             </Search>
 
-            <el-table :data="tableData" stripe style="width: 100%" v-loading="loading">
+            <el-table :data="tableData" stripe style="width: 100%" v-loading="loading" class='min-h-2xl'>
                 <el-table-column label="课程名" prop="course_info.name" align="center"/>
-                <el-table-column label="备注" prop="course_info.description" align="center"/>
                 <el-table-column label="学期" prop="course_info.semester" align="center"/>
                 <el-table-column label="分数" prop="grade" align="center"/>
+                <el-table-column label="排名" prop="rank.rank" align="center" />
                 <el-table-column label="任课教师" prop="teacher_info.name" align="center"/>
                 <el-table-column fixed="right" label="操作" width="180" align="center">
                     <template #default="{ row }">

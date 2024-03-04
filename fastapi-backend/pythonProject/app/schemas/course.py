@@ -7,11 +7,12 @@ class CourseBase(BaseModel):
     description: Optional[str] = None
     credits: int
     department_id: int
-    teacher_id: str
+    teacher_id: Optional[str]
 
 
 class CourseCreate(CourseBase):
     pass
+    semester: str
 
 
 class CourseUpdate(BaseModel):
@@ -33,6 +34,3 @@ class Course(CourseInDBBase):
 
 class CourseInDB(CourseInDBBase):
     pass
-
-
-

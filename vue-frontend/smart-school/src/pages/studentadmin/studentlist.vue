@@ -2,7 +2,7 @@
   <el-card shadow="never" class="border-0 my-10 mr-10">
     <!-- 新增|刷新 -->
     <div class="flex items-center justify-between mb-4">
-      <el-button type="primary" size="small" @click="handleCreate">新增</el-button>
+      <el-button v-if="!store.state.user.student_id" type="primary" size="small" @click="handleCreate">新增</el-button>
       <el-tooltip effect="dark" content="刷新数据" placement="top">
         <el-button text @click="getData">
           <el-icon :size="20">
@@ -11,7 +11,7 @@
         </el-button>
       </el-tooltip>
     </div>
-    <el-table :data="tableData" stripe style="width: 100%" v-loading="loading">
+    <el-table :data="tableData" stripe style="width: 100%" v-loading="loading" class='min-h-2xl'>
       <el-table-column prop="student_id" label="学号" />
       <el-table-column prop="date_of_birth" label="生日" />
       <el-table-column prop="name" label="姓名" />
@@ -21,7 +21,7 @@
       <el-table-column prop="department_name" label="院系" />
       <el-table-column prop="major" label="专业" />
       <el-table-column prop="enrollment_date" label="注册时间" />
-      <el-table-column label="操作" width="180" align="center">
+      <el-table-column label="操作" width="180" align="center" v-if="!store.state.user.student_id">
         <template #default="scope">
           <el-button type="primary" size="small" text @click="handleEdit(scope.row)">修改</el-button>
 
@@ -36,7 +36,7 @@
     </el-table>
 
     <div class="flex items-center justify-center mt-5">
-      <el-pagination background layout="prev, pager ,next" :total="total" :current-page="currentPage" :page-size="limit"
+      <el-pagination  background layout="prev, pager ,next" :total="total" :current-page="currentPage" :page-size="limit" v-if="!store.state.user.student_id"
         @current-change="getData" />
     </div>
 
@@ -76,7 +76,7 @@
           <el-input v-model="form.contact_info" placeholder="联系方式"></el-input>
         </el-form-item>
         <el-form-item label="状态" prop="name">
-          <el-select v-model="form.status" placeholder="请选择性别">
+          <el-select v-model="form.status" placeholder="请选择">
             <el-option v-for="item in options_status" :key="item.value" :label="item.label" :value="item.value" />
           </el-select>
         </el-form-item>
@@ -98,6 +98,9 @@ import {
 import {
   notice
 } from "~/util/util"
+
+import { useStore } from 'vuex';
+const store = useStore()
 
 const tableData = ref([])
 const loading = ref(false)

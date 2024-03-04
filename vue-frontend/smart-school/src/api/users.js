@@ -24,3 +24,16 @@ export function changepsw(data){
         newpassword:data.newpasswd,
     })
 }
+export function getStatistics1(){
+    return axios.post("/user/get_usr_statistics")
+}
+export function getStatistics2(){
+    return axios.post("/user/get_usr_statistics3")
+}
+export function getStatistics3(Semester){
+    return axios.get(`/student_course/student/get_course_statistics?&semester=${Semester}`)
+}
+
+export function get_analytics1(){
+    return axios.get("/student/get_analytics1")
+}

@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import BaseModel
 
 
@@ -6,13 +8,21 @@ class DormitoryBase(BaseModel):
     dorm_number: str
     floor: int
     capacity: int
-    current_occupancy: int
+    current_occupancy: Optional[int] = 0
     contact_phone: str
 
 
 # 创建宿舍时的请求模型，不包含自动生成的ID
 class DormitoryCreate(DormitoryBase):
     pass
+
+
+class DormitoryUpdate(BaseModel):
+    floor: Optional[int]
+    capacity: Optional[int]
+    grade:Optional[int]
+    current_occupancy: Optional[int] = 0
+    contact_phone: Optional[str]
 
 
 # 宿舍的完整模型，包括自动生成的ID

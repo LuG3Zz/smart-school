@@ -2,6 +2,7 @@ from pydantic import BaseModel
 
 
 class DepartmentBase(BaseModel):
+    department_id:int
     name: str
     head_id: str
     contact_info: str

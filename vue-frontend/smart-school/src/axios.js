@@ -29,7 +29,7 @@ service.interceptors.response.use(function (response) {
     // 超出 2xx 范围的状态码都会触发该函数。
     // 对响应错误做点什么
 
-    const message = error.response.data.detail || '请求失败，请查看网络'
+    const message = error.response.data.detail ||error.response.data.data ||'请求失败，请查看网络'
     if(message=='验证失败'|| message=='用户未登录或者登陆token已经失效'){
       store.dispatch("logout").finally(()=>location.reload())
     }else{

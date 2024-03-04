@@ -9,7 +9,7 @@
                 </div>
                 
                 <div class="actions">
-                    <el-button type="primary" @click="submit" :loading="loading">{{confirmText}}</el-button>
+                    <el-button v-show="showButton" type="primary" @click="submit" :loading="loading">{{confirmText}}</el-button>
                     <el-button type="default" @click="cancel">取消</el-button>
 
                 </div>
@@ -24,6 +24,7 @@ import {ref} from "vue"
 const drawer = ref(false)
 const loading = ref(false)
 
+const showButton = ref(true)
 const open = ()=>drawer.value=true
 const close = ()=>drawer.value=false
 const emit = defineEmits(['submit','cancle'])

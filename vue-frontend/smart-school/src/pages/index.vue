@@ -1,33 +1,69 @@
 <template>
     <div>
-        <el-row :gutter="20">
-            <el-col :span="6" :offset="0">
-                <el-card shadow="hover" class="bg-green-200 text-gray-500 my-10">
+        <div class="my-10">
+            <el-row :gutter="20" v-permission="['getStatistics1,POST']">
+                <template v-if="panels.length == 0">
+                    <el-col :span="6" v-for="i in 4" :key="i">
+                        <el-skeleton style="width: 100%;" animated loading>
+                            <template #template>
+                                <el-card shadow="hover" class="border-0">
+                                    <template #header>
+                                        <div class="flex justify-between">
+                                            <el-skeleton-item variant="text" style="width: 50%" />
+                                            <el-skeleton-item variant="text" style="width: 10%" />
+                                        </div>
+                                    </template>
+                                    <el-skeleton-item variant="h3" style="width: 80%" />
+                                    <el-divider />
+                                    <div class="flex justify-between text-sm text-gray-500">
+                                        <el-skeleton-item variant="text" style="width: 50%" />
+                                        <el-skeleton-item variant="text" style="width: 10%" />
+                                    </div>
+                                </el-card>
+                            </template>
+                        </el-skeleton>
+                    </el-col>
+                </template>
 
-                    <template #header>
-                        <div class="flex justify-between font-bold ">
-                            <span class="text-2xl">基本信息</span>
-                            <el-tag effect="plain" type="success" v-if="$store.state.user.position">
-                                {{ $store.state.user.position }}
-                              </el-tag>
-                              <el-tag effect="plain" type="info" v-else>
-                                学生
-                              </el-tag>
+
+                <el-col :span="6" :offset="0" v-for="(item, index) in panels" :key="index">
+                    <el-card shadow="hover" class="border-0">
+                        <template #header>
+                            <div class="flex justify-between">
+                                <span class="text-sm">{{ item.title }}</span>
+                                <el-tag :type="item.unitColor" effect="plain">
+                                    {{ item.unit }}
+                                </el-tag>
                             </div>
-                    </template>
-                    <div class="flex flex-col justify-between ">
-                        <span class="flex justify-between">姓名:
-                            <span class="font-bold items-center">{{ $store.state.user.name }}</span></span>
-                        <span class="flex justify-between">性别:<span>{{ $store.state.user.gender }}</span></span>
-                        <span class="flex justify-between">联系方式:<span>{{ $store.state.user.contact_info }}</span></span>
+                        </template>
+                        <span class="text-3xl font-bold text-gray-500">
+                            {{item.value}}
+                        </span>
                         <el-divider />
-                    </div>
-                </el-card>
-            </el-col>
-        </el-row>
-        {{ $store.state.user }}
-        <el-button @click="Logout">退出登录</el-button>
-    </div>
+                        <div class="flex justify-between text-sm text-gray-500">
+                            <span>{{ item.subTitle }}</span>
+                            <span>{{ item.subValue }}</span>
+                        </div>
+                    </el-card>
+
+                </el-col>
+            </el-row>
+
+            <IndexNavs />
+
+            <el-row :gutter="20" class="mt-5">
+                <el-col :span="12" :offset="0">
+                    <IndexChart v-permission="['getStatistics3,GET']" v-if="store.state.user.student_id" />
+                    <pieChart v-permission="['getStatistics3,GET']" v-else />
+                </el-col>
+                <el-col :span="12" :offset="0" v-permission="['getStatistics2,GET']">
+                    <IndexCard title="学工事务提示" tip="违纪和得奖提示" :btns="record" class="mb-2" />
+                    <IndexCard title="消息提示" tip="需要立即处理的消息" :btns="notification" />
+                </el-col>
+            </el-row>
+
+        </div>
+        </div>
 </template>
 
 
@@ -36,6 +72,10 @@ import { ref } from 'vue'
 import { msgbox, notice } from '~/util/util';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
+import IndexCard from '~/layout/components/IndexCard.vue'
+import IndexChart from '~/layout/components/IndexChart.vue'
+import pieChart from '~/layout/components/pieChart.vue'
+import IndexNavs from '~/layout/components/IndexNavs.vue'
 
 const router = useRouter()
 const store = useStore()
@@ -50,7 +90,24 @@ function Logout() {
     })
 
 }
+import {
+    getStatistics1,
+    getStatistics2
+} from "~/api/users.js"
 
+const panels = ref([])
+getStatistics1()
+    .then(res => {
+        console.log(res.data)
+        panels.value = res.data.panels
+    })
+
+const notification = ref([])
+const record = ref([])
+getStatistics2().then(res=>{
+    notification.value = res.data.notification
+    record.value = res.data.record
+})
 
 </script>
 

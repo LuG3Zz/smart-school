@@ -1,12 +1,14 @@
 # 选课请求模型
+from typing import Optional
+
 from pydantic import BaseModel
 
 
 # 选课请求模型
 class StudentCourseCreate(BaseModel):
-    student_id: str
+    student_id: Optional[str] = None
+    grade: Optional[int]
     course_id: int
-    semester: str
 
 
 # 更新选课请求模型

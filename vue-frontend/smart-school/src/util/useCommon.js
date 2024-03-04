@@ -59,14 +59,12 @@ export function useInitTable(opt = {}) {
 
     // 修改状态
     const handleStatusChange = (status, row) => {
-        row.statusLoading = true
-        opt.updateStatus(row.id, status)
+        opt.updateStatus(row, status)
             .then(res => {
                 notice("修改状态成功")
                 row.status = status
             })
             .finally(() => {
-                row.statusLoading = false
             })
     }
 
@@ -184,7 +182,7 @@ export function useInitForm(opt = {}) {
 
     // 编辑
     const handleEdit = (row) => {
-        editId.value = row.id
+        editId.value = row
         resetForm(row)
         formDrawerRef.value.open()
     }

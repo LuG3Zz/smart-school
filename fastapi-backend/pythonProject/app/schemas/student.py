@@ -32,6 +32,7 @@ class StudentUpdate(BaseModel):
     enrollment_date: Optional[date] = None
     contact_info: Optional[str] = None
     status: Optional[str] = None
+    photo:Optional[str]
 
 
 class StudentInDB(StudentBase):

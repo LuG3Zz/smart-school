@@ -1,13 +1,19 @@
 from fastapi import APIRouter, Request
 from fastapi import Depends, HTTPException, Header
 from fastapi.encoders import jsonable_encoder
-
-from app.crud import user
+from app.crud.student_course import get_student_credits, get_student_course_count, get_student_average_grade, \
+    get_student_highest_grade_course
 from app.crud.user import get_user_username, db_create_user, get_role_obj, get_info_by_username, get_user_by_id
-from app.crud.student import get_student, get_teacher_by_id
+from app.crud.student import get_student, get_teacher_by_id, get_all_student, get_teachers_by_department_id
+from app.crud.department import *
+from app.crud.studentdiscipline import *
+from app.crud.record import *
+from app.crud.notification import *
+from app.crud.course import *
 from app.schemas import *
 from app.util.get_db import get_db
 from sqlalchemy.orm import Session
+from app.crud import  teacher
 
 from jose import JWTError, jwt
 from passlib.context import CryptContext
@@ -24,36 +30,42 @@ ROLE_TO_MENUS = {
     "student": [
         {
             "name": "个人中心",
-            "index": "1",
+            "index": "0",
             "icon": "user",
             "children": [
-                {"href": "/personal-info", "icon": "InfoFilled", "name": "个人信息"},
-                {"href": "/academic-info", "icon": "notebook", "name": "学业信息"},
-                {"href": "/courses-info", "icon": "notebook", "name": "课程信息"},
-                {"href": "/security-settings", "icon": "search", "name": "个人违纪处分查询"}
+                {"href": "/info", "icon": "InfoFilled", "name": "个人信息"},
+
+                # {"href": "/academic-info", "icon": "notebook", "name": "学业信息"},
+                {"href": "/discipline-search", "icon": "search", "name": "个人违纪处分查询"},
+                {"href": "/notification", "icon": "edit", "name": "通知中心"}
             ]
         },
         {
-            "name": "迎新管理",
-            "index": "2",
+            "name": "课程中心",
+            "index": "1",
             "icon": "guide",
             "children": [
-                {"href": "/pre-registration", "icon": "edit", "name": "预报到登记"},
-                {"href": "/pickup-storage", "icon": "van", "name": "接送与寄存申请"},
-                {"href": "/information-service", "icon": "message", "name": "信息服务访问"}
+                {"href": "/courses-info", "icon": "notebook", "name": "课程信息"},
+                {"href": "/course-selection", "icon": "notebook", "name": "课程选择"},
             ]
         },
+        #{
+        #    "name": "迎新管理",
+        #    "index": "2",
+        #    "icon": "guide",
+        #    "children": [
+        #        {"href": "/pre-registration", "icon": "edit", "name": "预报到登记"},
+        #        {"href": "/pickup-storage", "icon": "van", "name": "接送与寄存申请"},
+        #        {"href": "/information-service", "icon": "message", "name": "信息服务访问"}
+        #    ]
+        #},
         {
             "name": "学生工作",
             "index": "3",
             "icon": "school",
             "children": [
-                {"href": "/campus-card-recharge", "icon": "wallet", "name": "校园卡充值"},
-                {"href": "/academic-records", "icon": "book", "name": "学籍成绩查询"},
-                {"href": "/awards-penalties", "icon": "medal", "name": "奖惩查询"},
-                {"href": "/financial-aid-application", "icon": "money", "name": "资助申请"},
-                {"href": "/student-evaluation-participation", "icon": "edit", "name": "学情测评参与"},
-                {"href": "/student-health-update", "icon": "heartbeat", "name": "健康信息更新"}
+                {"href": "/affairs-record", "icon": "wallet", "name": "学工记录"},
+                {"href": "/image", "icon": "edit", "name": "资料管理"}
             ]
         },
         {
@@ -61,72 +73,70 @@ ROLE_TO_MENUS = {
             "index": "4",
             "icon": "house",
             "children": [
-                {"href": "/dormitory-info-query", "icon": "infofilled", "name": "住宿信息查询"},
-                {"href": "/dormitory-hygiene-feedback", "icon": "leaf", "name": "宿舍卫生反馈"},
-                {"href": "/dormitory-discipline-report", "icon": "gavel", "name": "宿舍违纪报告"},
-                {"href": "/dormitory-repair-request", "icon": "tools", "name": "宿舍报修申请"},
-                {"href": "/network-service-request", "icon": "wifi", "name": "网络服务申请"},
-                {"href": "/holiday-stay-application", "icon": "calendar", "name": "假期留校申请"}
+                {"href": "/dormitory-info", "icon": "InfoFilled", "name": "住宿信息查询"},
             ]
         },
         {
             "name": "离校管理",
-            "index": "5",
+            "index": "6",
             "icon": "Van",
             "children": [
-                {"href": "/leaving-procedures-query", "icon": "list", "name": "离校事项查询"},
-                {"href": "/checkout-process", "icon": "check-circle", "name": "离校办理"}
+                #{"href": "/leaving-procedures-query", "icon": "list", "name": "离校事项查询"},
+                {"href": "/checkout-process", "icon": "CirclePlus", "name": "离校办理"}
             ]
         }
     ],
     "departmentHead": [
 
         {
-            "name": "院系信息查看",
+            "name": "院系管理",
             "index": "1",
             "icon": "document",
             "children": [
-                {"href": "/departments-info-view", "icon": "folder-open", "name": "院系信息查看"},
-                {"href": "/academic-performance", "icon": "bar-chart", "name": "学业成绩查看"},
-                {"href": "/discipline-records", "icon": "warning-outline", "name": "违纪记录查看"}
+                {"href": "/info", "icon": "InfoFilled", "name": "个人信息"},
+                {"href": "/departments-info-view", "icon": "monitor", "name": "院系信息查看"},
+                {"href": "/students-list", "icon": "folder", "name": "院系学生列表管理"},
+                {"href": "/image", "icon": "PictureFilled", "name": "资料管理"},
+                {"href": "/notification", "icon": "edit", "name": "我发送的通知"}
             ]
         },
-        {
-            "name": "迎新信息与活动",
-            "index": "2",
-            "icon": "bell",
-            "children": [
-                {"href": "/new-student-info", "icon": "info", "name": "新生信息服务"},
-                {"href": "/orientation-activities", "icon": "flag", "name": "迎新活动查看"}
-            ]
-        },
+        # {
+        #    "name": "迎新信息与活动",
+        #    "index": "2",
+        #    "icon": "bell",
+        #    "children": [
+        #        {"href": "/new-student-info", "icon": "info", "name": "新生信息服务"},
+        #        {"href": "/orientation-activities", "icon": "flag", "name": "迎新活动查看"}
+        #    ]
+        # },
         {
             "name": "学生事务管理",
             "index": "3",
             "icon": "school",
             "children": [
-                {"href": "/scholarship-audit", "icon": "medal", "name": "奖学金审核"},
-                {"href": "/financial-aid-audit", "icon": "money", "name": "资助审核"}
+                {"href": "/discipline-search", "icon": "DocumentDelete", "name": "违纪记录查看"},
+                {"href": "/affairs-record", "icon": "wallet", "name": "学工记录审核"},
+                {"href": "/dormitory-info", "icon": "InfoFilled", "name": "住宿信息查询"},
             ]
         },
-        {
-            "name": "学情测评与通报",
-            "index": "4",
-            "icon": "edit",
-            "children": [
-                {"href": "/evaluation-results", "icon": "form", "name": "学情测评结果"},
-                {"href": "/health-reports", "icon": "heartbeat", "name": "学员健康报告"},
-                {"href": "/announcements", "icon": "bullhorn", "name": "通报发布"}
-            ]
-        },
+        #{
+        #    "name": "学情测评与通报",
+        #    "index": "4",
+        #    "icon": "edit",
+        #    "children": [
+        #        {"href": "/evaluation-results", "icon": "form", "name": "学情测评结果"},
+        #        {"href": "/health-reports", "icon": "heartbeat", "name": "学员健康报告"},
+        #        {"href": "/announcements", "icon": "bullhorn", "name": "通报发布"}
+        #    ]
+        #},
         {
             "name": "数据分析与报告",
             "index": "5",
-            "icon": "chart-pie",
+            "icon": "TrendCharts",
             "children": [
-                {"href": "/student-analytics", "icon": "analysis", "name": "学员数据分析"},
-                {"href": "/course-attendance", "icon": "eye", "name": "上课出勤分析"},
-                {"href": "/performance-analysis", "icon": "data-analysis", "name": "成绩分析"}
+                {"href": "/student-analytics", "icon": "data-analysis", "name": "学员数据分析"},
+                # {"href": "/course-attendance", "icon": "eye", "name": "上课出勤分析"},
+                # {"href": "/performance-analysis", "icon": "data-analysis", "name": "成绩分析"}
             ]
         }
     ],
@@ -137,7 +147,8 @@ ROLE_TO_MENUS = {
             "icon": "document",
             "children": [
                 {"href": "/student-management", "icon": "folder", "name": "学生信息管理"},
-                {"href": "/record-lookup", "icon": "search", "name": "档案查询"}
+                {"href": "/record-lookup", "icon": "search", "name": "档案查询"},
+                {"href": "/image", "icon": "edit", "name": "资料管理"}
             ]
         },
         {
@@ -145,9 +156,7 @@ ROLE_TO_MENUS = {
             "index": "2",
             "icon": "school",
             "children": [
-                {"href": "/id-card-issues", "icon": "credit-card", "name": "学生证办理"},
-                {"href": "/campus-card-issues", "icon": "wallet", "name": "校园卡管理"},
-                {"href": "/scholarship-management", "icon": "trophy", "name": "奖学金管理"},
+                {"href": "/affairs-record", "icon": "wallet", "name": "学工记录审核"},
                 {"href": "/disciplinary-actions", "icon": "gavel", "name": "违纪管理"}
             ]
         },
@@ -173,28 +182,24 @@ ROLE_TO_MENUS = {
     ],
     "studentAdmin": [
         {
-            "name": "学员信息管理",
+            "name": "信息管理",
             "index": "1",
             "icon": "document",
             "children": [
-                {"href": "/students-list", "icon": "folder", "name": "学生列表管理"},
-                {"href": "/student-records", "icon": "folder", "name": "学生档案维护"},
-                {"href": "/record-query", "icon": "search", "name": "档案查询"},
-                {"href": "/course-manager", "icon": "book", "name": "课程管理"},
-                {"href": "/student-transfer", "icon": "swap", "name": "学籍调动申请"},
-                {"href": "/discipline-query", "icon": "warning", "name": "违纪处分查询"}
+                {"href": "/info", "icon": "InfoFilled", "name": "个人信息"},
+                {"href": "/students-list", "icon": "folder", "name": "学生档案及信息管理"},
+                {"href": "/discipline-search", "icon": "warning", "name": "违纪处分查询及添加"},
+                {"href": "/departments-info-view", "icon": "monitor", "name": "院系信息查看"},
+                {"href": "/notification", "icon": "edit", "name": "我发送的通知"}
             ]
         },
         {
-            "name": "迎新管理",
+            "name": "课程管理",
             "index": "2",
-            "icon": "guide",
+            "icon": "document",
             "children": [
-                {"href": "/pre-registration", "icon": "edit", "name": "预报到登记管理"},
-                {"href": "/pickup-storage", "icon": "truck", "name": "接送与寄存管理"},
-                {"href": "/information-service", "icon": "message", "name": "信息服务发布"},
-                {"href": "/registration-process", "icon": "process", "name": "报到流程管理"},
-                {"href": "/reception-activities", "icon": "flag", "name": "现场接待活动组织"}
+                {"href": "/course-manager", "icon": "notebook", "name": "课程管理"},
+                {"href": "/my-course-info-view", "icon": "memo", "name": "我管理的课程"},
             ]
         },
         {
@@ -202,48 +207,34 @@ ROLE_TO_MENUS = {
             "index": "3",
             "icon": "school",
             "children": [
-                {"href": "/student-id-management", "icon": "id-card", "name": "学生证办理管理"},
-                {"href": "/campus-card-recharge", "icon": "wallet", "name": "校园卡充值管理"},
-                {"href": "/academic-records", "icon": "book", "name": "学籍成绩管理"},
-                {"href": "/awards-penalties", "icon": "medal", "name": "奖惩管理"},
-                {"href": "/financial-aid", "icon": "money", "name": "资助发放管理"},
-                {"href": "/student-evaluation", "icon": "edit", "name": "学情测评发布"},
-                {"href": "/student-health", "icon": "heartbeat", "name": "学员健康管理"},
-                {"href": "/student-announcements", "icon": "bullhorn", "name": "学员通报"}
+                {"href": "/affairs-record", "icon": "wallet", "name": "学工记录审核"},
+                {"href": "/image", "icon": "edit", "name": "资料管理"}
             ]
         },
         {
             "name": "宿舍管理",
             "index": "4",
-            "icon": "home",
+            "icon": "house",
             "children": [
-                {"href": "/dormitory-info", "icon": "info", "name": "住宿信息管理"},
-                {"href": "/dormitory-hygiene", "icon": "leaf", "name": "宿舍卫生检查管理"},
-                {"href": "/dormitory-discipline", "icon": "gavel", "name": "宿舍违纪管理"},
-                {"href": "/dormitory-repair", "icon": "tools", "name": "宿舍报修管理"},
-                {"href": "/network-service", "icon": "wifi", "name": "网络服务管理"},
-                {"href": "/holiday-stay", "icon": "calendar", "name": "假期留校管理"}
+                {"href": "/dormitory-info", "icon": "InfoFilled", "name": "住宿信息管理"},
             ]
         },
         {
             "name": "离校管理",
             "index": "5",
-            "icon": "exit",
+            "icon": "van",
             "children": [
-                {"href": "/graduating-students", "icon": "graduation-cap", "name": "准毕业生管理"},
-                {"href": "/leaving-procedures", "icon": "list", "name": "离校事项管理"},
-                {"href": "/checkout-management", "icon": "check-circle", "name": "离校办理管理"}
+                # {"href": "/graduating-students", "icon": "graduation-cap", "name": "准毕业生管理"},
+                # {"href": "/leaving-procedures", "icon": "list", "name": "离校事项管理"},
+                {"href": "/checkout-process", "icon": "List", "name": "离校办理管理"}
             ]
         },
         {
             "name": "数据分析",
             "index": "6",
-            "icon": "chart-pie",
+            "icon": "connection",
             "children": [
-                {"href": "/student-portraits", "icon": "user", "name": "学员画像分析"},
-                {"href": "/class-attendance", "icon": "eye-open", "name": "上课情况分析"},
-                {"href": "/exam-results", "icon": "edit", "name": "考试成绩分析"},
-                {"href": "/data-integration-analysis", "icon": "connection", "name": "数据集成与分析"}
+                {"href": "/student-analytics", "icon": "data-analysis", "name": "学员分析"},
             ]
         }
     ]
@@ -280,7 +271,10 @@ def create_user(user: UserCreate, db: Session = Depends(get_db)):
             raise HTTPException(status_code=404, detail="学生的学号不存在")
     if role_name != "学生":
         if user.associated_id is None:
+
+
             raise HTTPException(status_code=404, detail="工号不能为空")
+
         elif get_user_by_id(db, user.associated_id):
             raise HTTPException(status_code=404, detail="该工号已被绑定")
         elif get_teacher_by_id(db, teacher_id=user.associated_id) is None:
@@ -391,8 +385,15 @@ async def login(request: Request, user: UserLogin, db: Session = Depends(get_db)
 @usersRouter.get(path='/get_cur_user', response_model=UserBase)
 async def get_current_user(user: UsernameRole = Depends(get_cure_user_by_token), db: Session = Depends(get_db)):
     user_info = jsonable_encoder(get_info_by_username(db, user.username))
-    print("user_info", user_info)
     data = {}
+    try:
+        department_name=get_department(db,user_info.get("department_id")).name
+        user_info['department_name'] = department_name
+        user_info['user_info']=jsonable_encoder(get_user_username(db,user.username))
+
+    except:
+        pass
+
     data['info'] = user_info
 
     if user.role == "学生":
@@ -431,3 +432,155 @@ async def change_password(request: Request, user_change_pasword: UserChangepassw
         request.app.state.redis.delete(user.username + "_password")
         return reponse(code=200, message="成功", data=user.username)
     return reponse(code=100301, message='原密码校验失败', data='')
+
+
+@usersRouter.post(path='/get_usr_statistics')
+async def get_student_statistics(request: Request, user: UsernameRole = Depends(get_cure_user_by_token),
+                                 db: Session = Depends(get_db)):
+    user_name = user.username
+
+    userinfo = get_user_username(db, user_name)
+    info = get_info_by_username(db, user_name)
+
+    # 使用示例：
+
+    if get_role_obj(db, userinfo.role).name == "学生":
+        title = ["用户信息", "所属学院", "已选课程学分", "课程平均分"]
+        try:
+            value = [info.name, get_department(db, info.department_id).name, get_student_credits(db, info.student_id),
+                     f"{get_student_average_grade(db, info.student_id):.2f}"]
+        except:
+            value = [info.name, get_department(db, info.department_id).name, "暂无数据",
+                     "暂无数据"]
+        unit = [get_role_obj(db, userinfo.role).name, f"学院编号:{info.department_id}", "学分", "成绩"]
+        unitColor = ["success", "info", "success", "danger"]
+        subTitle = ["用户名", "专业", "累计选课门数", "最高分"]
+        try:
+            subValue = [user.username, info.major, get_student_course_count(db, info.student_id),
+                    get_student_highest_grade_course(db, info.student_id)["grade"]]
+        except:
+            subValue = [user.username, info.major, "",
+                        '']
+
+    if get_role_obj(db, userinfo.role).name == "院系管理员":
+        title = ["用户信息", "所属学院", "院系数量", "院系教师"]
+        value = [info.name, get_department(db, info.department_id).name, get_department_all(db),
+                 len(get_teachers_by_department_id(db, info.department_id))]
+        unit = [get_role_obj(db, userinfo.role).name, f"学院编号:{info.department_id}", "总计", "人数"]
+        unitColor = ["success", "info", "success", "info"]
+        subTitle = ["用户名", "学院人数", "当前学院开设课程", "处理的违纪处分记录"]
+        subValue = [user.username, get_department_students_count(db, info.department_id),
+                    len(get_course_by_department_id(db, info.department_id)),
+                    len(get_disciplines_by_handler_id(db, userinfo.associated_id, limit=100))]
+    if get_role_obj(db, userinfo.role).name == "学生处管理员":
+        title = ["用户信息", "所属学院", "院系数量", "学生数量"]
+        value = [info.name, get_department(db, info.department_id).name, get_department_all(db),
+                 len(get_all_student(db))]
+        unit = [get_role_obj(db, userinfo.role).name, f"学院编号:{info.department_id}", "总计", "人"]
+        unitColor = ["success", "info", "success", "danger"]
+        subTitle = ["用户名", "学院人数", "全校🏠", "课程数量"]
+        subValue = [user.username, get_department_students_count(db, info.department_id), "", get_courses_count(db)]
+
+    panels = []
+    for index in range(len(title)):
+        panels.append({
+            'title': title[index],
+            'value': value[index],
+            'unit': unit[index],
+            'unitColor': unitColor[index],
+            'subTitle': subTitle[index],
+            'subValue': subValue[index],
+        })
+    statistics = {"panels": panels}
+    print('panels', statistics)
+    return reponse(data=jsonable_encoder(statistics))
+
+
+@usersRouter.post(path='/get_usr_statistics3')
+async def get_student_statistics3(user: UsernameRole = Depends(get_cure_user_by_token),
+                                  db: Session = Depends(get_db)):
+    user_name = user.username
+    userinfo = get_user_username(db, user_name)
+    info = get_info_by_username(db, user_name)
+    # 使用示例：
+    # 创建一个 Statistics 的实例
+    notification = []
+    record = []
+    if get_role_obj(db, userinfo.role).name == "学生":
+        record_count = get_record_count(db, info.student_id)
+        record_pass = get_record_status_count(db, info.student_id, "通过")
+        record_approval = get_record_status_count(db, info.student_id, "待审核")
+        record_rejection = get_record_status_count(db, info.student_id, "拒绝")
+        record.extend([
+            {
+                "label": "事务数",
+                "value": record_count
+            },
+            {
+                "label": "已通过",
+                "value": len(record_pass)
+            },
+            {
+                "label": "未通过",
+                "value": len(record_rejection)
+            },
+            {
+                "label": "待审核",
+                "value": len(record_approval)
+            },
+        ])
+        notification_check = get_uncheck_notification(db, userinfo.user_id, check=True)
+        notification_uncheck = get_uncheck_notification(db, userinfo.user_id)
+        notification_today = get_notification_date(db, target_user_id=userinfo.user_id,
+                                                   create_at=datetime.today().strftime("%Y-%m-%d"))
+        notification.extend([
+            {
+                "label": "通知数",
+                "value": len(get_notifications_by_target_user_id(db, userinfo.user_id))
+            },
+            {
+                "label": "未读",
+                "value": len(notification_uncheck)
+            },
+            {
+                "label": "已读",
+                "value": len(notification_check)
+            },
+            {
+                "label": "今日",
+                "value": len(notification_today)
+            },
+        ]
+        )
+    elif get_role_obj(db, userinfo.role).name != "学生":
+        # 根据你的业务逻辑，添加相应的数据到 statistics 的 goods 和 order 列表中
+        # 例如，假设你要统计院系的教师信息，你可以这样做：
+        record_count = get_record_by_auditor_id(db, info.teacher_id)
+        record_pass = get_record_status_count(db, student_id=None, teacher_id=info.teacher_id, status="通过")
+        record_approval = get_record_status_count(db, student_id=None, teacher_id=info.teacher_id, status="待审核")
+        record_rejection = get_record_status_count(db, student_id=None, teacher_id=info.teacher_id, status="拒绝")
+        record.extend([
+            {
+                "label": "事务数",
+                "value": len(record_count)
+            },
+            {
+                "label": "已通过",
+                "value": len(record_pass)
+            },
+            {
+                "label": "未通过",
+                "value": len(record_rejection)
+            },
+            {
+                "label": "待审核",
+                "value": len(record_approval)
+            },
+        ])
+        notification_send = get_notifications_by_publisher_id(db, info.teacher_id)
+        notification.extend([{
+            "label": "发送的公告数",
+            "value": len(notification_send)
+        }, ])
+    # 返回 statistics 的 JSON 序列化
+    return reponse(data={"record": record, "notification": notification})

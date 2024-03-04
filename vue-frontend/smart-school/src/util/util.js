@@ -43,7 +43,6 @@ export function queryParams(query){
       }
   }
   let r = q.join("&")
-  r = r ? ("?"+r) : ""
   return r
 }
 
@@ -51,14 +50,18 @@ export function queryParams(query){
 export function getCurrentSemester () {
   let today = new Date ();
   let currentYear = today.getFullYear ();
+  let currentMonth = today.getMonth (); // 获取当前月份，0 表示一月，11 表示十二月
   let startDate = new Date (currentYear, 8, 1); // 学期开始日期，假设为每年的 9 月 1 日
   let endDate = new Date (currentYear + 1, 5, 30); // 学期结束日期，假设为次年的 6 月 30 日
-  if (startDate <= today && today <= endDate) {
+  if (currentMonth >= 0 && currentMonth <= 1) { // 如果是 1 月或 2 月，属于上一学年的第二学期
+    return `${currentYear - 1}-${currentYear} 学年 第二学期`;
+  } else if (startDate <= today && today <= endDate) { // 如果在学期开始和结束日期之间，属于当前学年的第一学期
     return `${currentYear}-${currentYear + 1} 学年 第一学期`;
-  } else {
+  } else { // 其他情况，属于当前学年的第二学期
     return `${currentYear}-${currentYear + 1} 学年 第二学期`;
   }
 }
+
 
 export function dateToSemester (start, end) {
   let startDate = new Date (start);
@@ -88,4 +91,41 @@ export function dateToSemester (start, end) {
     }
   }
   return semester;
+}
+// 弹出输入框
+export function showPrompt(tip,value = ""){
+  return ElMessageBox.prompt(tip, '', {
+    confirmButtonText: '确认',
+    cancelButtonText: '取消',
+    inputValue:value
+  })
+}
+// 上移
+export function useArrayMoveUp(arr,index){
+  swapArray(arr,index,index - 1)
+}
+
+// 下移
+export function useArrayMoveDown(arr,index){
+  swapArray(arr,index,index + 1)
+}
+
+function swapArray(arr,index1,index2){
+  arr[index1] = arr.splice(index2,1,arr[index1])[0]
+  return arr
+}
+
+// sku排列算法
+export function cartesianProductOf() {
+  return Array.prototype.reduce.call(arguments, function (a, b) {
+      var ret = [];
+      a.forEach(function (a) {
+          b.forEach(function (b) {
+              ret.push(a.concat([b]));
+          });
+      });
+      return ret;
+  }, [
+      []
+  ]);
 }

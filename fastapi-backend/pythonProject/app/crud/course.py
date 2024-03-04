@@ -11,6 +11,16 @@ def get_course_by_id(db: Session, course_id: str):
     return db.query(models.Course).filter(models.Course.course_id == course_id).first()
 
 
+def get_course_by_teacher_id(db: Session, teacher_id: str):
+    return db.query(models.Course).filter(models.Course.teacher_id == teacher_id).all()
+
+
+def get_course_by_department_id(db: Session, department_id: int):
+    return db.query(models.Course).join(models.Department,
+                                        models.Department.department_id == models.Course.department_id).filter(
+        models.Course.department_id == department_id).all()
+
+
 def get_courses(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Course).offset(skip).limit(limit).all()
 
@@ -45,3 +55,14 @@ def delete_course(db: Session, course_id: str):
         db.commit()
         return True
     return False
+
+
+def get_student_selection_course(db, student_id: str, semester: str, skip: int = 0, limit: int = 10):
+    # 查询该学生已经选过的课程的 ID 列表
+    enrolled_course_ids = db.query(models.StudentCourse.course_id).filter(models.StudentCourse.student_id == student_id)
+    # 查询符合学生学期的课程
+    available_courses = db.query(models.Course).filter(models.Course.semester == semester)
+    # 筛选出学生未选的课程
+    elective_courses = available_courses.filter(models.Course.course_id.notin_(enrolled_course_ids))
+    # 返回可选课程的列表
+    return elective_courses.limit(limit).offset(skip).all()

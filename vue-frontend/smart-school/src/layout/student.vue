@@ -13,7 +13,6 @@
                     <Transition name="fade">
                     <RouterView>
                     </RouterView>
-
                     </Transition>
                 </el-main>
             </el-container>
